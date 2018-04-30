@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializers import RegistSerializer,LoginSerializer,UserCreateSerializer
+from .serializers import ActivateSerializer,LoginSerializer,UserCreateSerializer
 from django.contrib.auth import authenticate, login, logout
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from .models import Nuser

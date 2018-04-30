@@ -3,7 +3,7 @@ from .models import Nuser
 # from .models import Nuser
 
 
-class RegistSerializer(serializers.ModelSerializer):
+class ActivateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Nuser
         fields = ['username', 'password']
