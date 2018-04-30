@@ -36,9 +36,7 @@ def spider(username, password, yzm_text, yzm_cookie):
     soup = BeautifulSoup(content, "lxml")
     namediv = soup.find_all(attrs={'id': 'nameLable'})
     termspan = soup.find_all(attrs={'id': 'term'})
-    # print("等防疫")
-    # print(namediv)
-
+    school = soup.find_all(attrs={"id":'acade'})
 
     #爬取课表
     table_url = 'http://210.42.121.241/stu/stu_course_parent.jsp'
@@ -46,19 +44,17 @@ def spider(username, password, yzm_text, yzm_cookie):
     class_table = urllib.request.urlopen(requset).read()
 
     tsoup = BeautifulSoup(class_table,"xml")
-    # print(tsoup)
     page_iframe = tsoup.find_all(attrs={'id': 'iframe0'})
     page_url = home_url  # 课程表所在的url
-
     page_urls = page_url + page_iframe[0].get('src')[:-19] + "&action=normalLsn&year=2017&term=%CF%C2&state="
-    print("哈哈")
-    print(page_urls)
+
+
     requset = urllib.request.Request(page_urls, headers={'Cookie': yzm_cookie})
     # 课表的详细内容：table_content
     table_content = urllib.request.urlopen(requset).read()
-    print("qweqeqeqweqwewq")
 
-#获取课程信息
+
+#获取课程信息与个人信息
 
     csoup = BeautifulSoup(table_content, 'lxml')
     listTable = csoup.find_all(attrs={'class': 'table listTable'})
@@ -66,31 +62,15 @@ def spider(username, password, yzm_text, yzm_cookie):
     # print(csoup)
     tr = listTable[0].find_all('tr')
     a =tr[1].find_all("td")
-    print(a[0].string)
+    # print(a[0].string)
     tr_num = len(tr)
     username = re.sub('[\r\n\t]', '', namediv[0].text).split()
     term =  re.sub('[\r\n\t]', '',termspan[0].text).split()
-    course_sum = {"username":username,"term":term}
+    school= re.sub('[\r\n\t]', '',school[0].text).split()
+    course_sum = {"username":username,"school":school,"term":term}
+    # print("sdsdsdsd")
     for i in range(1, tr_num):
         td = tr[i].find_all('td')
-        # course_num = td[0].text.encode("utf-8").strip() #课头号
-        # course_name = td[1].text.encode("utf-8").strip() #课程名字
-        # course_type = td[2].text.encode("utf-8").strip() #课程类型（必修或选修）
-        # course_college = td[4].text.encode("utf-8").strip() #授课学院
-        # course_teacher = td[5].text.encode("utf-8").strip() #授课老师
-        # course_major = td[6].text.encode("utf-8").strip() #专业
-        # course_point = td[7].text.encode("utf-8").strip() #学分
-        # course_time = td[9].text.encode("utf-8").strip() #课程时间
-        # time_dict = course_time.split(b":")
-        # day =  time_dict[0] #形式为"周一"
-        # class_num = time_dict[1].split(b";")[1].split(b"--")[0].split(b"-")
-        # start_num = class_num[0] #开始节数
-        # end_num = class_num[1] #结束节数
-        # course_name = course_name.decode("utf-8")
-        # course_time = course_time.decode('utf-8')
-        #课程名
-
-        # course_num = td[0].text.repalce('\t',"")
         course_num =re.sub('[\r\n\t]','',td[0].text).split()
         course_name = re.sub('[\r\n\t]','',td[1].text).split()  # 课程名字
         course_type = re.sub('[\r\n\t]','',td[2].text).split()  # 课程类型（必修或选修）
@@ -110,21 +90,14 @@ def spider(username, password, yzm_text, yzm_cookie):
             "time": course_time,
 
         }
-
-        # lesson_file = 'file/yzm/' + "data.txt"
-        # with open(lesson_file, 'w') as f:
-        #     f.write(str(course_infor))
-        course_sum[i+1]=course_infor
-        print("qweqeqeqweqwewq")
+        # print("sdsdsdsd")
+        course_sum["course_{}".format(i)]=course_infor
+    print("sdsdsdsd")
     return course_sum
 
 def save_img(cookie, yzm_image):
     shutil.rmtree('file/yzm')
     os.mkdir('file/yzm')
-    # os.remove(remove_file)
     yzm_file = 'file/yzm/' +   str(cookie)[11:43]+ ".jpg"
-    # str(cookie)[11:43]
-    # print ("sadasdasd")
     with open(yzm_file, 'wb') as f:
         f.write(yzm_image)
-        f.close()

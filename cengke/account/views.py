@@ -30,24 +30,18 @@ class LoginView(APIView):
     authentication_classes = (SessionAuthentication,BasicAuthentication)
     @csrf_exempt
     def post(self, request):
-        # return Response("ha")
         serializer = LoginSerializer(data=request.data)
-        # return Response("ha")
-        # print("gege")
+
         if serializer.is_valid():
-            # return Response("ha")
             username = serializer.data['username']
             password = serializer.data['password']
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-
                 return Response("OK!")
             else:
-
                 return Response("NO!")
         else:
-            # content = {'msg': ' "no!"'}
             return Response(serializer.errors)
 
 class ActivateView(APIView):
@@ -56,7 +50,6 @@ class ActivateView(APIView):
     authentication_classes = (SessionAuthentication, BasicAuthentication)
     @csrf_exempt
     def post(self, request):
-
         serializer = UserCreateSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         username = serializer.data['username']
@@ -65,7 +58,6 @@ class ActivateView(APIView):
         yzm_cookie = serializer.data['yzm_cookie']
         try:
             course_infor = spider(username, password, yzm_text, yzm_cookie)
-
         except:
             reply = {'error':'用户激活失败'}
             return Response(reply)
@@ -84,9 +76,7 @@ class ActivateView(APIView):
 
 class VCodeView(APIView):
     permission_classes = [AllowAny]
-    # serializer_class = UserCreateSerializer
     def get(self,request):
-        # username = request.user.username
         image_url = 'http://210.42.121.241/servlet/GenImg'
         yzm = requests.get(image_url)
         yzm_image = yzm.content
