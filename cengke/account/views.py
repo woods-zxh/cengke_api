@@ -20,10 +20,12 @@ from rest_framework.status import (
     HTTP_404_NOT_FOUND, )
 from django.views.decorators.csrf import csrf_exempt
 import requests
-from .spider import save_img,spider
+from .spider import save_img,spider,table
+from .spider2 import spider2
 from rest_framework import permissions
+from course.models import AllCourses
 
-
+#用户登陆
 class LoginView(APIView):
     permission_classes = [AllowAny]
     serializer_class = LoginSerializer
@@ -44,6 +46,8 @@ class LoginView(APIView):
         else:
             return Response(serializer.errors)
 
+
+#激活用户
 class ActivateView(APIView):
     serializer_class = UserCreateSerializer
     permission_classes = [AllowAny]
@@ -57,21 +61,66 @@ class ActivateView(APIView):
         yzm_text = serializer.data['yzm_text']
         yzm_cookie = serializer.data['yzm_cookie']
         try:
-            course_infor = spider(username, password, yzm_text, yzm_cookie)
+            course_sum = {}
+
+            table_content = spider(username, password, yzm_text, yzm_cookie,course_sum)
+
+            course_infor = table(table_content[1],table_content[0])
+            print("ASdasd")
         except:
             reply = {'error':'用户激活失败'}
             return Response(reply)
 
-        # # HTTP_400_BAD_REQUEST
-        # if(Nuser.objects.filter(username= username)):
-        #     return Response({"error":"username has been created"})
-        #
-        # else:
-        #     user = Nuser.objects.create_user(username=username, password=password)
-        #     user.save()
-        #     # user = authenticate(username=username, password=password)
-        #     # logout(request)
-        #     return Response(course_infor)
+#创建用户
+        if(Nuser.objects.filter(username= username)):
+            return Response({"error":"username has been created"})
+        else:
+
+            user = Nuser.objects.create(
+                                username =username,
+                                password = password,
+                                grade =username[:4],
+                                school=c["school"][0],
+                                real_name =c["username"][0])
+
+#创建用户的课程表
+            c = course_infor
+            user = Nuser.objects.get(username=username)
+            cout = 1
+            for key in c:
+
+                if cout > 3:
+
+                    user.coursetable_set.create(course_id=c[key]["course_id"])
+                else:
+                    cout = cout + 1
+
+#这里的是用来爬取总数据的
+        course_infor = spider2(username, password, yzm_text, yzm_cookie)
+        c = course_infor
+        for key in c:
+
+            AllCourses.objects.create(
+                data_id=c[key]["data_id"],
+                course_id =c[key]["course_id"],
+                name = c[key]["name"],
+                type = c[key]["type"],
+                school = c[key]["school"],
+                major = c[key]["major"],
+                teacher = c[key]["teacher"],
+                credit = c[key]["credit"],
+                start_week = c[key]["start_week"],
+                end_week = c[key]["end_week"],
+                gap = c[key]["gap"],
+                day_in_week = c[key]["day_in_week"],
+                start_time = c[key]["start_time"],
+                end_time = c[key]["end_time"],
+                area = c[key]["area"],
+                building = c[key]["building"],
+                room = c[key]['room'],
+                )
+
+
         return Response(course_infor)
 
 class VCodeView(APIView):

@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0cf1ef4d-b46a-4eb8-bccf-e43d7bd3076e" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/cengke/account/migrations/0002_auto_20180429_1506.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cengke/account/models.py" afterPath="$PROJECT_DIR$/cengke/account/models.py" />
+      <change beforePath="$PROJECT_DIR$/cengke/account/serializers.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cengke/account/spider.py" afterPath="$PROJECT_DIR$/cengke/account/spider.py" />
+      <change beforePath="$PROJECT_DIR$/cengke/account/tests.py" afterPath="$PROJECT_DIR$/cengke/account/tests.py" />
+      <change beforePath="$PROJECT_DIR$/cengke/account/views.py" afterPath="$PROJECT_DIR$/cengke/account/views.py" />
+      <change beforePath="$PROJECT_DIR$/cengke/cengke/settings.py" afterPath="$PROJECT_DIR$/cengke/cengke/settings.py" />
+      <change beforePath="$PROJECT_DIR$/cengke/cengke/urls.py" afterPath="$PROJECT_DIR$/cengke/cengke/urls.py" />
+      <change beforePath="$PROJECT_DIR$/cengke/db.sqlite3" afterPath="$PROJECT_DIR$/cengke/db.sqlite3" />
+      <change beforePath="$PROJECT_DIR$/cengke/file/yzm/ADF808221FB0B6D31B1732D8B46B78E8.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/后台接口设计.odt" afterPath="$PROJECT_DIR$/后台接口设计.odt" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/cengke_api$tests.coverage" NAME="tests Coverage Results" MODIFIED="1525610372635" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cengke/account" />
+    <SUITE FILE_PATH="coverage/cengke_api$spider2.coverage" NAME="spider2 Coverage Results" MODIFIED="1525142566643" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cengke/account" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/cengke/account/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="serializers.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cengke/course/serializers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cengke/course/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="468">
+              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cengke/cengke/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="468">
+              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="spider.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cengke/account/spider.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2178">
+              <caret line="130" column="69" lean-forward="false" selection-start-line="130" selection-start-column="69" selection-end-line="130" selection-end-column="69" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cengke/account/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="21" column="11" lean-forward="false" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="6B6C3B103F06F58F29760EFDA9F12E0E.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cengke/file/yzm/6B6C3B103F06F58F29760EFDA9F12E0E.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cengke/course/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="27" lean-forward="false" selection-start-line="0" selection-start-column="27" selection-end-line="0" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="url.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cengke/course/url.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="4" column="32" lean-forward="true" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#24#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="spider2.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cengke/account/spider2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="972">
+              <caret line="61" column="23" lean-forward="false" selection-start-line="61" selection-start-column="23" selection-end-line="61" selection-end-column="23" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>print</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/cengke/account/serializers.py" />
+        <option value="$PROJECT_DIR$/cengke/cengke/settings.py" />
+        <option value="$PROJECT_DIR$/cengke/account/course.html" />
+        <option value="$PROJECT_DIR$/cengke/course/spider2.py" />
+        <option value="$PROJECT_DIR$/cengke/course/serializers" />
+        <option value="$PROJECT_DIR$/cengke/account/serializers2.py" />
+        <option value="$PROJECT_DIR$/cengke/course/serializers.py" />
+        <option value="$PROJECT_DIR$/cengke/account/tests.py" />
+        <option value="$PROJECT_DIR$/cengke/account/spider2.py" />
+        <option value="$PROJECT_DIR$/cengke/course/models.py" />
+        <option value="$PROJECT_DIR$/cengke/account/views.py" />
+        <option value="$PROJECT_DIR$/cengke/account/spider.py" />
+        <option value="$PROJECT_DIR$/cengke/course/views.py" />
+        <option value="$PROJECT_DIR$/cengke/cengke/urls.py" />
+        <option value="$PROJECT_DIR$/cengke/course/url.py" />
+        <option value="$PROJECT_DIR$/cengke/account/models.py" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="346" />
+    <option name="y" value="123" />
+    <option name="width" value="1572" />
+    <option name="height" value="892" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="cengke_api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cengke_api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cengke_api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cengke_api" type="462c0819:PsiDirectoryNode" />
+              <item name="cengke" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cengke_api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cengke_api" type="462c0819:PsiDirectoryNode" />
+              <item name="cengke" type="462c0819:PsiDirectoryNode" />
+              <item name="account" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cengke_api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cengke_api" type="462c0819:PsiDirectoryNode" />
+              <item name="cengke" type="462c0819:PsiDirectoryNode" />
+              <item name="cengke" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cengke_api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cengke_api" type="462c0819:PsiDirectoryNode" />
+              <item name="cengke" type="462c0819:PsiDirectoryNode" />
+              <item name="course" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cengke_api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cengke_api" type="462c0819:PsiDirectoryNode" />
+              <item name="cengke" type="462c0819:PsiDirectoryNode" />
+              <item name="file" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cengke_api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cengke_api" type="462c0819:PsiDirectoryNode" />
+              <item name="cengke" type="462c0819:PsiDirectoryNode" />
+              <item name="file" type="462c0819:PsiDirectoryNode" />
+              <item name="yzm" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.tests">
+    <configuration name="spider2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/cengke/account" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="cengke_api" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cengke/account/spider2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="tests" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/cengke/account" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="cengke_api" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cengke/account/tests.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Python.spider2" />
+      <item index="1" class="java.lang.String" itemvalue="Python.tests" />
+    </list>
+    <recent_temporary>
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Python.tests" />
+        <item index="1" class="java.lang.String" itemvalue="Python.spider2" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0cf1ef4d-b46a-4eb8-bccf-e43d7bd3076e" name="Default" comment="" />
+      <created>1525053405325</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1525053405325</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="346" y="123" width="1572" height="892" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14866582" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15203562" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="7" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/B1B55789458C4FDA0737980FE220C6CC.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/2D353E464FC0DEBEA814BEE46CB02DCF.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/3847D40D1A8B074D1DB4BF4064D845E7.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/BD107A5A76A247370F5A9BEAA28AE87C.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/6039E4483087D5484A3E65A45733522E.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/account/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="15" lean-forward="true" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cengke/account/course.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6534">
+          <caret line="363" column="20" lean-forward="false" selection-start-line="363" selection-start-column="20" selection-end-line="363" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/BB2EDC95C9DD5CE679FB81AEC9319BE5.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/0A307C37748221C71F0A876A05638693.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/AA1D7258816B15CFB2BC8B73574796EF.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/7859D61BF12FA7D703EBA749A5D8C315.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/2D20ED284C23998969DA99AA816DF92A.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/3E308F287C44B2B6BFB2DD20E4BA5F5E.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/03CF9A1FBDDCFECED09E7ABC94AA23F1.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/E1632A225EF439BA923A9F008B9F8424.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/8C01B421F58196BF7020BD4D6774986F.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/4927CD7B7BFCB91ACDA7093DFA468AB8.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/B0937E0CAE0725517D6DC8D0B0EDBE92.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/FC49B1D32ABE32BFFE78B0AF0463A2F3.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/0EE4F18008B069488FC69F7A9EB828C6.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/DFB3988F0DCDAFCF703EAB7681F88A17.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/C0FBC5D5FCCE0123BDF3BA050AC7F2E3.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/96FFEB22D883A9FB74E4B9CAACC97C30.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/8FDA6C5C000C349EFD31EEABF74CFA48.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/75541D3295D91F47962D44C270CEE3F5.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/course/spider2.py" />
+    <entry file="file://$PROJECT_DIR$/cengke/account/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1530">
+          <caret line="85" column="4" lean-forward="false" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cengke/account/url.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/C838453F01430AA8B2FC2D8A0B5B3FE9.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/00CC1FAEF515088B2FA8317253C255A0.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/628660369F30CF76A288DC9FD34C3D0D.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/1EC81AA1C9935B3DA9CAEFC2F00C0D02.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/7348C0C679772A75A4CEE9915DE8B367.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/0DCCDF507D517686E3228691F8840FFA.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/D27EBE639F900301BC9222824493EFD7.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/0E85482C6994EDF9D06D7128D62B6A83.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/1B45FCAFF3CFB67AE37BED6506EFFEF4.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/FCB31FF8EEC88502626CCBA3CB6F7480.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/8AB383E9300F507D2A08B306C567CA08.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/36802BC2F47CE1DD581871A5BCE7247A.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/7A6E69E8ED8895EAC1E1D3F1D364FFA3.jpg" />
+    <entry file="file://$PROJECT_DIR$/cengke/file/yzm/6B6C3B103F06F58F29760EFDA9F12E0E.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cengke/account/spider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2178">
+          <caret line="130" column="69" lean-forward="false" selection-start-line="130" selection-start-column="69" selection-end-line="130" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cengke/account/spider2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="972">
+          <caret line="61" column="23" lean-forward="false" selection-start-line="61" selection-start-column="23" selection-end-line="61" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cengke/course/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cengke/course/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cengke/cengke/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cengke/course/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="27" lean-forward="false" selection-start-line="0" selection-start-column="27" selection-end-line="0" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cengke/course/url.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="32" lean-forward="true" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cengke/account/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="21" column="11" lean-forward="false" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cengke/account/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

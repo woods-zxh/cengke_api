@@ -1,0 +1,818 @@
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+<meta http-equiv="Content-Style-Type" content="text/css"/>
+<title>选课界面</title>
+<link rel="stylesheet" type="text/css" href="../css/style_common.css?v=2.002"/>
+<link rel="stylesheet" type="text/css" href="../css/tab.css?v=2.002"/>
+<script type="text/javascript" src="../js/jquery.tools.min.js"></script>
+<script type="text/javascript" src="../js/table.js?v=2.002"></script>
+<script type="text/javascript" src="../js/customControl.js?v=2.002"></script>
+
+<script type="text/javascript">
+// perform JavaScript after the document is scriptable.
+$(function() {
+    // setup ul.tabs to work as tabs for each div directly under div.panes
+    $("ul.tabs").tabs("div.panes > div.panel",{
+		tabs:'li'
+	});
+	var triggers = $(".overlay").overlay({
+	  target:$("#prompt",window.parent.parent.document),
+	  fixed:false,
+	  top:'10',
+	  left:'0px',
+	  closeOnClick:true,
+	  onBeforeLoad:function(){
+	  		var index = this.getTrigger().attr("rel");
+		 	var wrap = this.getOverlay().find("iframe[name=overLayFrame]");
+		 	wrap.width(980);
+		 	wrap.attr("src","../stu/ChooseLsnRules.jsp?rel="+index);
+
+		 	var length = 1280;
+		 	var leftPosition = (length-980)/2;
+		 	this.getOverlay().css("left",leftPosition);
+
+		    parent.parent.startExpose();
+	  },
+	  onBeforeClose:function(){parent.parent.closeExpose();},
+	  onClose:function(){
+	  	this.getOverlay().find("iframe[name=overLayFrame]").attr("src","");}
+  });
+});
+
+</script>
+
+<script type="text/javascript">
+// perform JavaScript after the document is scriptable.
+/*
+lessonName:课程名
+credit:学分
+lessonHeadId:课程头号
+*/
+function addCourse(lessonName,credit,lessonHeadId,teacherName,planType)
+{
+
+
+	var tb = $(window.parent.parent.frames['bar'].document.getElementsByTagName("table")[0]);
+	var form = $(window.parent.parent.frames['bar'].document.getElementById("myform"));
+	var count = form.children().length;
+	var flag = false;
+	form.children().each(function(){
+			if($(this).val() == lessonHeadId){
+				flag = true;
+				return false;
+			}
+	});
+	if(flag == false&& count<=6){
+	form.append("<input type='hidden' name='apply' value='"+lessonHeadId + "'/>");
+	var detail ="课头号："+lessonHeadId+"\r\n" + "学分："+credit+"\r\n" + "教师名："+teacherName+"\r\n"+"类型："+planType;
+	tb.append("<tr id ='"+lessonHeadId+"' style='border-bottom: 1px solid rgb(192, 192, 192);'" +"><td title='" + detail + "'>"+lessonName+"</td><td>"+"新增"+"</td><td><a href='#' onclick='courseDel(this)'>删除</a></td></tr>");
+	//点击后不变为不可选，因为删除后还不可以点亮，重新刷新后也不行，应该从jsp上，经过查询数据库后在显示
+	//$("#"+lessonHeadId).attr("disabled",true);
+	}
+	else if(flag == true){
+		customAlert("对不起，您已经选过该课程了！ ","选课提示:");}
+	else {customAlert("抱歉，每次最多只能选择6门选修课程！","选课提示:")};
+}
+
+</script>
+<style>
+.tooltip {
+	z-index:600;
+    display:none;
+    background-color:gray;
+    font-size:14px;
+    width:260px;
+    padding:10px;
+    color:#fff;
+  }
+</style>
+</head>
+<body style="background-color:transparent">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+    	<form action="choose_PubLsn_list.jsp" method="post" >
+    	<a href="" rel="0" class="overlay a_btn" id="toblack">查看选课规则</a>
+	    	<div id="searchBox" >
+	            校区&nbsp;
+	            <select name="XiaoQu" class="input" style="width:60px;">
+	                <option value ="0" selected>全校</option>
+					<option value ="1" >1区</option>
+					<option value ="2" >2区</option>
+					<option value ="3" >3区</option>
+					<option value ="4" >4区</option>
+	            </select>&nbsp;&nbsp;
+	            学分&nbsp;
+	            <select name="credit" class="input" style="width:60px;">
+	                <option  value ="0" selected>所有</option>
+
+	                <option  value =1 >1</option>
+
+
+	                <option  value =1.5 >1.5</option>
+
+
+	                <option  value =2 >2</option>
+
+
+	                <option  value =2.5 >2.5</option>
+
+
+	                <option  value =3 >3</option>
+
+
+	                <option  value =4 >4</option>
+
+
+	            </select>&nbsp;&nbsp;
+
+	            <input style="color:#696969" name="keyword" type="text" id="cx" value='教师名/课程名' onfocus="if (value =='教师名/课程名'){value =''}" onblur="if (value ==''){value='教师名/课程名'}" />
+	            <input type="submit" name="submit" class="searchBtb"  value="查询" onclick="if($(':text').val()=='教师名/课程名') {$(':text').val('')}"/>
+	       <!--    <a href="../stu/chooseLsnaaaa.html" target="_blank" class="a_btn" >查看选课规则</a>	       -->
+	        </div>
+        </form>
+
+	    <div class="tipInfo" >
+           *查询范围：2017到2018学年下学期的课程
+    	</div>
+<table class="table listTable" style="table-layout: fixed;" width="100%">
+	<tr>
+		<!-- <th>课程名</th>
+		<th style="width:30px">学分</th>
+		<th style="width:70px">剩余/最大人数</th>
+		<th style="width:90px">教师名</th>
+		<th style="width:">职称</th>
+		<th>授课学院</th>
+		<th>教材</th>
+		<th style="width:40px">学年</th>
+		<th style="width:30px">学期</th>
+		<th style="width:180px;text-align:center;">上课时间地点</th>
+		<th style="width:135px;text-align:center;">备注</th>
+		<th width="68px">选课</th>-->
+		<th>课程名</th>
+		<th style="width:30px;">学分</th>
+		<th style="width:60px;">剩余/最大人数</th>
+		<th style="width:45px;">教师名</th>
+		<th style="width:45px;">职称</th>
+		<th>授课学院</th>
+		<th>教材</th>
+		<th style="width:40px;">学年</th>
+		<th style="width:30px;">学期</th>
+		<th style="width:240px;">上课时间地点</th>
+		<th style="width:110px;">备注</th>
+		<th style="width:68px;">选课</th>
+	</tr>
+  <!-- 显示已选课程的数据 -->
+
+  <tr >
+
+
+    <td >外交礼仪与谈判</td>
+
+     <td>1.0</td>
+     <td><font color="#FF0000">3</font>/245</td>
+    <td >吴蔚</td>
+    <td>讲师</td>
+    <td>中国边界与海洋研究院</td>
+    <td >&nbsp;</td>
+    <td >2017</td>
+     <td >下</td>
+
+
+
+
+
+    <td >
+	    <div class="overflow">
+	    	周一:1-10周,每1周;
+11-12节,1区,1-302;
+		</div>
+	</td>
+       <td >
+
+    <div class="overflow">
+
+	    	 	 人文与社会类
+
+	</div>
+   </td>
+    <td><input type="button" class="btn" value="选课" id="20172062001" disabled onclick="addCourse('外交礼仪与谈判','1.0','20172062001','吴蔚','公共选修');"/></td>
+
+    <!-- <TD height="25" nowrap>选课结束</TD>-->
+
+
+
+
+  </tr>
+
+  <tr >
+
+
+    <td >地下水与人类文明</td>
+
+     <td>1.0</td>
+     <td><font color="#FF0000">0</font>/99</td>
+    <td >黄爽</td>
+    <td>副教授</td>
+    <td>水利水电学院</td>
+    <td >自编</td>
+    <td >2017</td>
+     <td >下</td>
+
+
+
+
+
+    <td >
+	    <div class="overflow">
+	    	周一:1-10周,每1周;
+11-12节,1区,3-103;
+		</div>
+	</td>
+       <td >
+
+    <div class="overflow">
+
+	    	 	 自然与工程类
+
+	</div>
+   </td>
+    <td><input type="button" class="btn" value="选课" id="20172016087" disabled onclick="addCourse('地下水与人类文明','1.0','20172016087','黄爽','公共选修');"/></td>
+
+    <!-- <TD height="25" nowrap>选课结束</TD>-->
+
+
+
+
+  </tr>
+
+  <tr >
+
+
+    <td >地下空间的开发和利用</td>
+
+     <td>1.0</td>
+     <td><font color="#FF0000">1</font>/99</td>
+    <td >苏凯</td>
+    <td>副教授</td>
+    <td>水利水电学院</td>
+    <td >自编讲义</td>
+    <td >2017</td>
+     <td >下</td>
+
+
+
+
+
+    <td >
+	    <div class="overflow">
+	    	周一:1-10周,每1周;
+11-12节,1区,3-203;
+		</div>
+	</td>
+       <td >
+
+    <div class="overflow">
+
+	    	 	 自然与工程类
+
+	</div>
+   </td>
+    <td><input type="button" class="btn" value="选课" id="20172016114" disabled onclick="addCourse('地下空间的开发和利用','1.0','20172016114','苏凯','公共选修');"/></td>
+
+    <!-- <TD height="25" nowrap>选课结束</TD>-->
+
+
+
+
+  </tr>
+
+  <tr >
+
+
+    <td >治水与社会发展</td>
+
+     <td>1.0</td>
+     <td><font color="#FF0000">0</font>/99</td>
+    <td >谢华</td>
+    <td>副教授</td>
+    <td>水利水电学院</td>
+    <td >《治水与社会发展》（谢华）</td>
+    <td >2017</td>
+     <td >下</td>
+
+
+
+
+
+    <td >
+	    <div class="overflow">
+	    	周一:1-10周,每1周;
+11-12节,1区,3-303;
+		</div>
+	</td>
+       <td >
+
+    <div class="overflow">
+
+	    	 	 人文与社会类
+
+	</div>
+   </td>
+    <td><input type="button" class="btn" value="选课" id="20172016045" disabled onclick="addCourse('治水与社会发展','1.0','20172016045','谢华','公共选修');"/></td>
+
+    <!-- <TD height="25" nowrap>选课结束</TD>-->
+
+
+
+
+  </tr>
+
+  <tr >
+
+
+    <td >水质与人体健康和社会发展</td>
+
+     <td>1.0</td>
+     <td><font color="#FF0000">2</font>/200</td>
+    <td >刘广容</td>
+    <td>高级实验师</td>
+    <td>动力与机械学院</td>
+    <td >崔玉川，饮水?水质?健康[M]，中国建筑工业出版社，2009. </td>
+    <td >2017</td>
+     <td >下</td>
+
+
+
+
+
+    <td >
+	    <div class="overflow">
+	    	周一:1-10周,每1周;
+11-12节,1区,4-202;
+		</div>
+	</td>
+       <td >
+
+    <div class="overflow">
+
+	    	 	 自然与工程类
+
+	</div>
+   </td>
+    <td><input type="button" class="btn" value="选课" id="20172018052" disabled onclick="addCourse('水质与人体健康和社会发展','1.0','20172018052','刘广容','公共选修');"/></td>
+
+    <!-- <TD height="25" nowrap>选课结束</TD>-->
+
+
+
+
+  </tr>
+
+  <tr >
+
+
+    <td >大学生职业规划与就业</td>
+
+     <td>1.0</td>
+     <td><font color="#FF0000">2</font>/50</td>
+    <td >王少雄</td>
+    <td>教辅人员</td>
+    <td>就业指导中心</td>
+    <td >&nbsp;</td>
+    <td >2017</td>
+     <td >下</td>
+
+
+
+
+
+    <td >
+	    <div class="overflow">
+	    	周一:1-10周,每1周;
+11-12节,1区,5-107;
+		</div>
+	</td>
+       <td >
+
+    <div class="overflow">
+
+	    	 	 人文与社会类
+
+	</div>
+   </td>
+    <td><input type="button" class="btn" value="选课" id="20172080001" disabled onclick="addCourse('大学生职业规划与就业','1.0','20172080001','王少雄','公共选修');"/></td>
+
+    <!-- <TD height="25" nowrap>选课结束</TD>-->
+
+
+
+
+  </tr>
+
+  <tr >
+
+
+    <td >大学生心理健康</td>
+
+     <td>1.0</td>
+     <td><font color="#FF0000">0</font>/99</td>
+    <td >聂晗颖</td>
+    <td>助教</td>
+    <td>大学生心理健康中心</td>
+    <td >&nbsp;</td>
+    <td >2017</td>
+     <td >下</td>
+
+
+
+
+
+    <td >
+	    <div class="overflow">
+	    	周一:1-10周,每1周;
+11-12节,1区,5-207;
+		</div>
+	</td>
+       <td >
+
+    <div class="overflow">
+
+	    	 	 人文与社会类
+
+	</div>
+   </td>
+    <td><input type="button" class="btn" value="选课" id="20172083004" disabled onclick="addCourse('大学生心理健康','1.0','20172083004','聂晗颖','公共选修');"/></td>
+
+    <!-- <TD height="25" nowrap>选课结束</TD>-->
+
+
+
+
+  </tr>
+
+  <tr >
+
+
+    <td >MATLAB及其应用</td>
+
+     <td>1.0</td>
+     <td><font color="#FF0000">10</font>/230</td>
+    <td >缪庆元</td>
+    <td>教授</td>
+    <td>电子信息学院</td>
+    <td >MATLAB教程，张志涌等编著</td>
+    <td >2017</td>
+     <td >下</td>
+
+
+
+
+
+    <td >
+	    <div class="overflow">
+	    	周一:1-10周,每1周;
+11-12节,1区,计-101;
+		</div>
+	</td>
+       <td >
+
+    <div class="overflow">
+
+	    	 	 自然与工程类
+
+	</div>
+   </td>
+    <td><input type="button" class="btn" value="选课" id="20172022002" disabled onclick="addCourse('MATLAB及其应用','1.0','20172022002','缪庆元','公共选修');"/></td>
+
+    <!-- <TD height="25" nowrap>选课结束</TD>-->
+
+
+
+
+  </tr>
+
+  <tr >
+
+
+    <td >数字媒体传播基础</td>
+
+     <td>1.0</td>
+     <td><font color="#FF0000">3</font>/210</td>
+    <td >邹炼</td>
+    <td>研究员</td>
+    <td>电子信息学院</td>
+    <td >&nbsp;</td>
+    <td >2017</td>
+     <td >下</td>
+
+
+
+
+
+    <td >
+	    <div class="overflow">
+	    	周一:1-10周,每1周;
+11-12节,1区,计-102;
+		</div>
+	</td>
+       <td >
+
+    <div class="overflow">
+
+	    	 	 自然与工程类
+
+	</div>
+   </td>
+    <td><input type="button" class="btn" value="选课" id="20172022004" disabled onclick="addCourse('数字媒体传播基础','1.0','20172022004','邹炼','公共选修');"/></td>
+
+    <!-- <TD height="25" nowrap>选课结束</TD>-->
+
+
+
+
+  </tr>
+
+  <tr >
+
+
+    <td >自然计算方法导论</td>
+
+     <td>1.0</td>
+     <td><font color="#FF0000">5</font>/100</td>
+    <td >梁意文</td>
+    <td>教授</td>
+    <td>计算机学院</td>
+    <td >&nbsp;</td>
+    <td >2017</td>
+     <td >下</td>
+
+
+
+
+
+    <td >
+	    <div class="overflow">
+	    	周一:1-10周,每1周;
+11-12节,3区,1-201;
+		</div>
+	</td>
+       <td >
+
+    <div class="overflow">
+
+	    	 	 自然与工程类
+
+	</div>
+   </td>
+    <td><input type="button" class="btn" value="选课" id="20172021160" disabled onclick="addCourse('自然计算方法导论','1.0','20172021160','梁意文','公共选修');"/></td>
+
+    <!-- <TD height="25" nowrap>选课结束</TD>-->
+
+
+
+
+  </tr>
+
+  <tr >
+
+
+    <td >创业与法律</td>
+
+     <td>2.0</td>
+     <td><font color="#FF0000">0</font>/100</td>
+    <td >孙晋</td>
+    <td>教授</td>
+    <td>法学院</td>
+    <td >&nbsp;</td>
+    <td >2017</td>
+     <td >下</td>
+
+
+
+
+
+    <td >
+	    <div class="overflow">
+	    	周一:1-12周,每1周;
+11-13节,1区,5-111;
+		</div>
+	</td>
+       <td >
+
+    <div class="overflow">
+
+	    	 	 研究与领导类
+
+	</div>
+   </td>
+    <td><input type="button" class="btn" value="选课" id="20172006070" disabled onclick="addCourse('创业与法律','2.0','20172006070','孙晋','公共选修');"/></td>
+
+    <!-- <TD height="25" nowrap>选课结束</TD>-->
+
+
+
+
+  </tr>
+
+  <tr >
+
+
+    <td >创业运营模拟课程</td>
+
+     <td>2.0</td>
+     <td><font color="#FF0000">0</font>/60</td>
+    <td >徐晓辉</td>
+    <td>实验师</td>
+    <td>经济与管理学院</td>
+    <td >&nbsp;</td>
+    <td >2017</td>
+     <td >下</td>
+
+
+
+
+
+    <td >
+	    <div class="overflow">
+	    	周一:1-13周,每1周;
+11-13节;
+		</div>
+	</td>
+       <td title="<div>人文与社会类，经管院机房A329室授课</div>"id='tips'>
+
+    <div class="overflow">
+
+	    	 	 人文与社会类，经管院机房A329室授课
+
+	</div>
+   </td>
+    <td><input type="button" class="btn" value="选课" id="20172005349" disabled onclick="addCourse('创业运营模拟课程','2.0','20172005349','徐晓辉','公共选修');"/></td>
+
+    <!-- <TD height="25" nowrap>选课结束</TD>-->
+
+
+
+
+  </tr>
+
+  <tr >
+
+
+    <td >计算机信息检索与利用(工)1</td>
+
+     <td>2.0</td>
+     <td><font color="#FF0000">0</font>/60</td>
+    <td >龚芙蓉</td>
+    <td>副研究馆员</td>
+    <td>图书馆</td>
+    <td >&nbsp;</td>
+    <td >2017</td>
+     <td >下</td>
+
+
+
+
+
+    <td >
+	    <div class="overflow">
+	    	周一:1-13周,每1周;
+11-13节;
+		</div>
+	</td>
+       <td title="<div>自然与工程类，上课地点：信息学部图书馆5楼培训教室</div>"id='tips'>
+
+    <div class="overflow">
+
+	    	 	 自然与工程类，上课地点：信息学部图书
+
+	</div>
+   </td>
+    <td><input type="button" class="btn" value="选课" id="20172053006" disabled onclick="addCourse('计算机信息检索与利用(工)1','2.0','20172053006','龚芙蓉','公共选修');"/></td>
+
+    <!-- <TD height="25" nowrap>选课结束</TD>-->
+
+
+
+
+  </tr>
+
+  <tr >
+
+
+    <td >数字化建筑设计方法</td>
+
+     <td>2.0</td>
+     <td><font color="#FF0000">6</font>/60</td>
+    <td >刘永</td>
+    <td>副教授</td>
+    <td>城市设计学院</td>
+    <td >&nbsp;</td>
+    <td >2017</td>
+     <td >下</td>
+
+
+
+
+
+    <td >
+	    <div class="overflow">
+	    	周一:1-13周,每1周;
+11-13节;
+		</div>
+	</td>
+       <td title="<div>自然与工程类，城设机房</div>"id='tips'>
+
+    <div class="overflow">
+
+	    	 	 自然与工程类，城设机房
+
+	</div>
+   </td>
+    <td><input type="button" class="btn" value="选课" id="20172019196" disabled onclick="addCourse('数字化建筑设计方法','2.0','20172019196','刘永','公共选修');"/></td>
+
+    <!-- <TD height="25" nowrap>选课结束</TD>-->
+
+
+
+
+  </tr>
+
+  <tr >
+
+
+    <td >环境水利学</td>
+
+     <td>2.0</td>
+     <td><font color="#FF0000">2</font>/99</td>
+    <td >林忠兵</td>
+    <td>讲师</td>
+    <td>水利水电学院</td>
+    <td >自编（伍靖伟）</td>
+    <td >2017</td>
+     <td >下</td>
+
+
+
+
+
+    <td >
+	    <div class="overflow">
+	    	周一:1-13周,每1周;
+11-13节,1区,3-302;
+		</div>
+	</td>
+       <td >
+
+    <div class="overflow">
+
+	    	 	 自然与工程类，钟华
+
+	</div>
+   </td>
+    <td><input type="button" class="btn" value="选课" id="20172016084" disabled onclick="addCourse('环境水利学','2.0','20172016084','林忠兵','公共选修');"/></td>
+
+    <!-- <TD height="25" nowrap>选课结束</TD>-->
+
+
+
+
+  </tr>
+
+
+
+</table>
+        <div class="page_nav">
+        	<div class="total_count">共有<span style='color:red;'>382</span>条记录 第1/26页&nbsp;&nbsp;首页&nbsp;1&nbsp;<a href="choose_PubLsn_list.jsp?XiaoQu=0&credit=0&keyword=&pageNum=2" class="navegate">2</a>&nbsp;<a href="choose_PubLsn_list.jsp?XiaoQu=0&credit=0&keyword=&pageNum=3" class="navegate">3</a>&nbsp;<a href="choose_PubLsn_list.jsp?XiaoQu=0&credit=0&keyword=&pageNum=4" class="navegate">4</a>&nbsp;<a href="choose_PubLsn_list.jsp?XiaoQu=0&credit=0&keyword=&pageNum=5" class="navegate">5</a>&nbsp;<a href="choose_PubLsn_list.jsp?XiaoQu=0&credit=0&keyword=&pageNum=6" class="navegate">6</a>&nbsp;<a href="choose_PubLsn_list.jsp?XiaoQu=0&credit=0&keyword=&pageNum=7" class="navegate">7</a>&nbsp;<a href="choose_PubLsn_list.jsp?XiaoQu=0&credit=0&keyword=&pageNum=8" class="navegate">8</a>&nbsp;<a href="choose_PubLsn_list.jsp?XiaoQu=0&credit=0&keyword=&pageNum=9" class="navegate">9</a>&nbsp;<a href="choose_PubLsn_list.jsp?XiaoQu=0&credit=0&keyword=&pageNum=10" class="navegate">10</a>&nbsp;<a href="choose_PubLsn_list.jsp?XiaoQu=0&credit=0&keyword=&pageNum=11" class="navegate">11</a>&nbsp;<a href="choose_PubLsn_list.jsp?XiaoQu=0&credit=0&keyword=&pageNum=12" class="navegate">12</a>&nbsp;<a href="choose_PubLsn_list.jsp?XiaoQu=0&credit=0&keyword=&pageNum=13" class="navegate">13</a>&nbsp;<a href="choose_PubLsn_list.jsp?XiaoQu=0&credit=0&keyword=&pageNum=14" class="navegate">14</a>&nbsp;<a href="choose_PubLsn_list.jsp?XiaoQu=0&credit=0&keyword=&pageNum=15" class="navegate">15</a>&nbsp;<a href="choose_PubLsn_list.jsp?XiaoQu=0&credit=0&keyword=&pageNum=16" class="navegate">16</a>&nbsp;<a href="choose_PubLsn_list.jsp?XiaoQu=0&credit=0&keyword=&pageNum=17" class="navegate">17</a>&nbsp;<a href="choose_PubLsn_list.jsp?XiaoQu=0&credit=0&keyword=&pageNum=18" class="navegate">18</a>&nbsp;<a href="choose_PubLsn_list.jsp?XiaoQu=0&credit=0&keyword=&pageNum=19" class="navegate">19</a>&nbsp;<a href="choose_PubLsn_list.jsp?XiaoQu=0&credit=0&keyword=&pageNum=20" class="navegate">20</a>&nbsp;<a href="choose_PubLsn_list.jsp?XiaoQu=0&credit=0&keyword=&pageNum=21" class="navegate">21</a>&nbsp;<a href="choose_PubLsn_list.jsp?XiaoQu=0&credit=0&keyword=&pageNum=22" class="navegate">22</a>&nbsp;<a href="choose_PubLsn_list.jsp?XiaoQu=0&credit=0&keyword=&pageNum=23" class="navegate">23</a>&nbsp;<a href="choose_PubLsn_list.jsp?XiaoQu=0&credit=0&keyword=&pageNum=24" class="navegate">24</a>&nbsp;<a href="choose_PubLsn_list.jsp?XiaoQu=0&credit=0&keyword=&pageNum=25" class="navegate">25</a>&nbsp;<a href="choose_PubLsn_list.jsp?XiaoQu=0&credit=0&keyword=&pageNum=26" class="navegate">26</a>&nbsp;<a href="choose_PubLsn_list.jsp?XiaoQu=0&credit=0&keyword=&pageNum=2" class="navegate">下一页 &gt; </a>&nbsp;<a href="choose_PubLsn_list.jsp?XiaoQu=0&credit=0&keyword=&pageNum=26" class="navegate">尾页</a></div>
+        </div>
+<script>
+$(function() {
+// initialize tooltip
+$("td[title]").tooltip({
+	position: "center left",
+   // tweak the position
+   offset: [10, 2],
+   // use the "slide" effect
+   effect: 'slide',
+   onBeforeShow:function(){
+   		var tip = this.getTip();
+   		var brCount = tip.contents().find("br").length;
+   		if(brCount>1)
+   			tip.height(brCount*16+16);
+   		else{
+   			tip.height(brCount*16+16);
+   			tip.width(tip.contents().html().length*16);
+   		}
+   }
+// add dynamic plugin with optional configuration for bottom edge
+});
+});
+</script>
+<script type="text/javascript" src="../js/ConsoleMonitor.js?v=2.002"></script>
+</body>
+</html>
