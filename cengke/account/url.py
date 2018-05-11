@@ -11,8 +11,12 @@ urlpatterns = [
     url(r'^login/$', views.LoginView.as_view(),name ='login'),
     url(r'^yzm/', views.VCodeView.as_view(),name='yzm'),
     url(r'^activate/', views.ActivateView.as_view(), name='activate'),
+    # url(r'^information',views.InforationView.as_view(),name = 'information'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-]
+
+
+
 
 # urlpatterns = format_suffix_patterns(urlpatterns)
 # if settings.DEBUG:

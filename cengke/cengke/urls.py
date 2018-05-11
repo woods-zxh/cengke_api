@@ -24,6 +24,6 @@ urlpatterns = [
     url(r'^account/', include('account.url')),
     url(r'^course/',include('course.url')),
 ]
-
-if settings.DEBUG:
-    urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+#
+# if settings.DEBUG:
+#     urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

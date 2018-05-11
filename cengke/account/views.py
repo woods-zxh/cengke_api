@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializers import ActivateSerializer,LoginSerializer,UserCreateSerializer
+from .serializers import ActivateSerializer,LoginSerializer
 from django.contrib.auth import authenticate, login, logout
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from .models import Nuser
@@ -49,12 +49,12 @@ class LoginView(APIView):
 
 #激活用户
 class ActivateView(APIView):
-    serializer_class = UserCreateSerializer
+    serializer_class = ActivateSerializer
     permission_classes = [AllowAny]
     authentication_classes = (SessionAuthentication, BasicAuthentication)
     @csrf_exempt
     def post(self, request):
-        serializer = UserCreateSerializer(data=request.data)
+        serializer = ActivateSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         username = serializer.data['username']
         password = serializer.data['password']
@@ -62,9 +62,7 @@ class ActivateView(APIView):
         yzm_cookie = serializer.data['yzm_cookie']
         try:
             course_sum = {}
-
             table_content = spider(username, password, yzm_text, yzm_cookie,course_sum)
-
             course_infor = table(table_content[1],table_content[0])
             print("ASdasd")
         except:
@@ -82,43 +80,40 @@ class ActivateView(APIView):
                                 grade =username[:4],
                                 school=c["school"][0],
                                 real_name =c["username"][0])
-
 #创建用户的课程表
             c = course_infor
             user = Nuser.objects.get(username=username)
             cout = 1
             for key in c:
-
                 if cout > 3:
-
                     user.coursetable_set.create(course_id=c[key]["course_id"])
                 else:
                     cout = cout + 1
 
 #这里的是用来爬取总数据的
-        course_infor = spider2(username, password, yzm_text, yzm_cookie)
-        c = course_infor
-        for key in c:
-
-            AllCourses.objects.create(
-                data_id=c[key]["data_id"],
-                course_id =c[key]["course_id"],
-                name = c[key]["name"],
-                type = c[key]["type"],
-                school = c[key]["school"],
-                major = c[key]["major"],
-                teacher = c[key]["teacher"],
-                credit = c[key]["credit"],
-                start_week = c[key]["start_week"],
-                end_week = c[key]["end_week"],
-                gap = c[key]["gap"],
-                day_in_week = c[key]["day_in_week"],
-                start_time = c[key]["start_time"],
-                end_time = c[key]["end_time"],
-                area = c[key]["area"],
-                building = c[key]["building"],
-                room = c[key]['room'],
-                )
+        # course_infor = spider2(username, password, yzm_text, yzm_cookie)
+        # c = course_infor
+        # for key in c:
+        #
+        #     AllCourses.objects.create(
+        #         data_id=c[key]["data_id"],
+        #         course_id =c[key]["course_id"],
+        #         name = c[key]["name"],
+        #         type = c[key]["type"],
+        #         school = c[key]["school"],
+        #         major = c[key]["major"],
+        #         teacher = c[key]["teacher"],
+        #         credit = c[key]["credit"],
+        #         start_week = c[key]["start_week"],
+        #         end_week = c[key]["end_week"],
+        #         gap = c[key]["gap"],
+        #         day_in_week = c[key]["day_in_week"],
+        #         start_time = c[key]["start_time"],
+        #         end_time = c[key]["end_time"],
+        #         area = c[key]["area"],
+        #         building = c[key]["building"],
+        #         room = c[key]['room'],
+        #         )
 
 
         return Response(course_infor)
