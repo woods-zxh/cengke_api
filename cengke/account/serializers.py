@@ -26,21 +26,19 @@ class ActivateSerializer(serializers.ModelSerializer):
         username = data.get('username')
         password = data.get('password')
         if not username:
-            raise ValidationError('lack username')
+            raise serializers.ValidationError('lack username')
         if not password:
-            raise ValidationError('lack password')
+            raise serializers.ValidationError('lack password')
         return data
 
     def validate_username(self,value):
         data = self.get_initial()
         username = data.get('username')
-        user_qs = User.objects.filter(username=username)
+        user_qs = Nuser.objects.filter(username=username)
         if user_qs.exists():
-            raise ValidationError("The username has been registered.")
+            raise serializers.ValidationError("The username has been registered.")
         return value
 
-class LoginSerializer(serializers.ModelSerializer):
+class LoginSerializer(serializers.Serializer):
     username = serializers.CharField()
-    class Meta:
-        model = Nuser
-        fields = ['username', 'password', 'sigh']
+    password = serializers.CharField(label=',write_only=True,Password',style={'input_type': 'password'})

@@ -13,6 +13,8 @@ class Nuser(AbstractUser):
     grade = models.IntegerField(default=2018)
     table_time = models.DateTimeField(auto_now_add=True)
     can_post = models.BooleanField(default=False)
+    term = models.CharField(max_length=20, default="0")
+    week = models.CharField(max_length=20, default="0")
 
     def __str__(self):
         return self.username
@@ -36,7 +38,7 @@ class Coursehistory(models.Model):
     # id = models.IntegerField(default=0,primary_key=True)
     user = models.ForeignKey(Nuser, on_delete=models.CASCADE)
     course_id = models.IntegerField()
-    comment = models.CharField(max_length=200,default="没啥好说的")
+    comment = models.CharField(max_length=200,default="写点什么吧！")
 
     def __str__(self):
         return self.user.username

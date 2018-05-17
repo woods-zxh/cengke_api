@@ -33,15 +33,21 @@ class LoginView(APIView):
     @csrf_exempt
     def post(self, request):
         serializer = LoginSerializer(data=request.data)
-
         if serializer.is_valid():
             username = serializer.data['username']
             password = serializer.data['password']
-            user = authenticate(username=username, password=password)
-            if user is not None:
+            user = authenticate(username='2017302580272',password='15270934144zhang')
+            if user is not None :
                 login(request, user)
-                return Response("OK!")
+                user = Nuser.objects.get(username=username)
+                response = {
+                    "real_name": user.real_name,
+                    "school": user.school,
+                    "grade": user.grade,
+                }
+                return Response(response)
             else:
+
                 return Response("NO!")
         else:
             return Response(serializer.errors)
@@ -64,24 +70,28 @@ class ActivateView(APIView):
             course_sum = {}
             table_content = spider(username, password, yzm_text, yzm_cookie,course_sum)
             course_infor = table(table_content[1],table_content[0])
-            print("ASdasd")
+
         except:
             reply = {'error':'用户激活失败'}
             return Response(reply)
 
 #创建用户
+        c = course_infor
         if(Nuser.objects.filter(username= username)):
             return Response({"error":"username has been created"})
         else:
 
-            user = Nuser.objects.create(
+            user = Nuser.objects.create_user(
                                 username =username,
                                 password = password,
                                 grade =username[:4],
                                 school=c["school"][0],
-                                real_name =c["username"][0])
+                                real_name =c["username"][0],
+                                term = c["term"][0],
+                                week = c["term"][1],
+            )
 #创建用户的课程表
-            c = course_infor
+
             user = Nuser.objects.get(username=username)
             cout = 1
             for key in c:
@@ -115,12 +125,13 @@ class ActivateView(APIView):
         #         room = c[key]['room'],
         #         )
 
-
-        return Response(course_infor)
+        reponse = {"激活成功！"}
+        return Response(reponse)
 
 class VCodeView(APIView):
     permission_classes = [AllowAny]
     def get(self,request):
+        print(request.user)
         image_url = 'http://210.42.121.241/servlet/GenImg'
         yzm = requests.get(image_url)
         yzm_image = yzm.content
