@@ -1,4 +1,5 @@
 from account.models import CourseTable
+from .courseWeight import makeCourseWeight
 from rest_framework.views import APIView
 from rest_framework.permissions import (
     IsAdminUser,
@@ -12,37 +13,48 @@ from rest_framework.status import (
     HTTP_201_CREATED,
     HTTP_200_OK,
     HTTP_404_NOT_FOUND, )
+
 from .serializers import (
     BuildingCoursesSerializer,
     PushMessageSerializer,
     CoursesSerializer,
     CourseTableSerializer,
     CourseIdSerializer,
+    SearchSerializer,
     )
 
 from .models import AllCourses,PushMessage
 from django.contrib.auth import authenticate, login, logout
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.response import Response
-
+# from django.db.modelsimports Q
+from django.db.models import Q
+import math
 #返回课表信息
+
+DoItUserWeight = 0.2
+DoItCourseWeight=0.02
+CollectUserWeight = 0.2
+CollectCourseWeight=0.02
+
 class CourseTableView(APIView):
     permission_classes = [AllowAny]
     # serializer_class = Serializer
     authentication_classes = (SessionAuthentication, BasicAuthentication)
 
     def get(self,request):
+        # makeCourseWeight()
         user = request.user
         course_set = CourseTable.objects.filter(user = user)
         queryset1 = AllCourses.objects.filter(course_id=20172005341)
+        print(course_set)
         for course in course_set:
             queryset = AllCourses.objects.filter(course_id=course.course_id)
             queryset1 =  queryset1|queryset
-        print(queryset1)
+
         # if queryset.exists():
         serializer = CourseTableSerializer(queryset1 ,many=True)
-        # serializer.is_valid()
-        print(serializer.data)
+
         response = Response(serializer.data)
         return response
         #
@@ -78,7 +90,6 @@ class CourseDetailView(APIView):
         serializer.is_valid(raise_exception=True)
         data_id =  serializer.data['data_id']
         queryset = AllCourses.objects.filter(data_id = data_id)
-        # print(queryset)
         serializer = CoursesSerializer(queryset, data=request.data, many=True)
         serializer.is_valid(raise_exception=True)
         response = Response(serializer.data)
@@ -96,9 +107,29 @@ class DoItView(APIView):
         serializer.is_valid(raise_exception=True)
         data_id = serializer.data['data_id']
         queryset = AllCourses.objects.filter(data_id=data_id)
-        # print(queryset)
-        for course in queryset:
-            user.coursehistory_set.create(course_id = course.course_id)
+        #创建用户的足迹以及反馈给课程
+        for b in queryset:
+            user.coursehistory_set.create(course_id = b.course_id)
+            #用户自己的向量发生改变
+            user.art += b.art
+            user.communication += DoItUserWeight*b.communication
+            user.society += DoItUserWeight*b.society
+            user.internation += DoItUserWeight*b.internation
+            user.leader += DoItUserWeight*b.leader
+            user.science += DoItUserWeight*b.science
+            user.logic += DoItUserWeight*b.logic
+            user.others += DoItUserWeight*b.others
+            user.save()
+            #课程的向量发生改变
+            b.art += b.art
+            b.communication += DoItCourseWeight * (user.communication-DoItUserWeight*b.communication)
+            b.society += DoItCourseWeight * (user.society-DoItUserWeight*b.society)
+            b.internation += DoItCourseWeight * (user.internation-DoItUserWeight*b.internation)
+            b.leader += DoItCourseWeight * (user.leader-DoItUserWeight*b.leader)
+            b.science += DoItCourseWeight * (user.science-DoItUserWeight*b.science)
+            b.logic += DoItCourseWeight * (user.logic-DoItUserWeight*b.logic)
+            b.others += DoItCourseWeight * (user.others-DoItUserWeight*b.others)
+            b.save()
 
         response = Response("OK!")
         return response
@@ -115,9 +146,29 @@ class CollectView(APIView):
         serializer.is_valid(raise_exception=True)
         data_id = serializer.data['data_id']
         queryset = AllCourses.objects.filter(data_id=data_id)
-        # print(queryset)
-        for course in queryset:
-            user.coursecolle_set.create(course_id=course.course_id)
+        for b in queryset:
+            user.coursecolle_set.create(course_id=b.course_id)
+            user.coursehistory_set.create(course_id=b.course_id)
+            # 用户自己的向量发生改变
+            user.art += b.art
+            user.communication += DoItUserWeight * b.communication
+            user.society += DoItUserWeight * b.society
+            user.internation += DoItUserWeight * b.internation
+            user.leader += DoItUserWeight * b.leader
+            user.science += DoItUserWeight * b.science
+            user.logic += DoItUserWeight * b.logic
+            user.others += DoItUserWeight * b.others
+            user.save()
+            # 课程的向量发生改变
+            b.art += b.art
+            b.communication += DoItCourseWeight * (user.communication - DoItUserWeight * b.communication)
+            b.society += DoItCourseWeight * (user.society - DoItUserWeight * b.society)
+            b.internation += DoItCourseWeight * (user.internation - DoItUserWeight * b.internation)
+            b.leader += DoItCourseWeight * (user.leader - DoItUserWeight * b.leader)
+            b.science += DoItCourseWeight * (user.science - DoItUserWeight * b.science)
+            b.logic += DoItCourseWeight * (user.logic - DoItUserWeight * b.logic)
+            b.others += DoItCourseWeight * (user.others - DoItUserWeight * b.others)
+            b.save()
 
         response = Response("OK!")
         return response
@@ -148,3 +199,92 @@ class PushView(APIView):
             # created_time =  serializer.data['created_time']
             response = Response("OK!")
             return response
+
+#获得官方推送
+class GetPushView(APIView):
+    permission_classes = [AllowAny]
+    serializer_class = PushMessageSerializer
+    authentication_classes = (SessionAuthentication, BasicAuthentication)
+
+    def get(self,request):
+        # serializer = PushMessageSerializer(data=request.data)
+        # serializer.is_valid(raise_exception=True)
+        queryset = PushMessage.objects.all()
+        serializer = PushMessageSerializer(queryset, many=True)
+        response = Response(serializer.data)
+        return response
+
+
+#进行模糊搜索
+class SearchView(APIView):
+    permission_classes = [AllowAny]
+    serializer_class = SearchSerializer
+    authentication_classes = (SessionAuthentication, BasicAuthentication)
+
+    def post(self,request):
+        serializer = SearchSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        keyword = serializer.data["keyword"]
+        day_in_week = serializer.data["day_in_week"]
+        start_time = serializer.data["start_time"]
+        end_time = serializer.data["end_time"]
+        area = serializer.data["area"]
+        #这里还要吧TIME转化成节数
+
+        searchResult1 = AllCourses.objects.filter( Q(teacher__icontains=keyword)\
+                                                  |Q(name__icontains =keyword))
+
+
+        searchResult2 = searchResult1.filter(end_time__gte = end_time).filter(start_time__lte = start_time)
+        if(area!=0):
+            searchResult2 = searchResult2.filter(area__icontains=area)
+        if(day_in_week!=0):
+            searchResult2 = searchResult2.filter(day_in_week__icantains =day_in_week)
+        serializer = CoursesSerializer(searchResult2,many = True)
+        # reply = {"result":searchResult2}
+        reponse = Response(serializer.data)
+        return reponse
+
+#智能推荐的最后一步函数
+class RecommmentView(APIView):
+    permission_classes = [AllowAny]
+    serializer_class = CoursesSerializer
+    authentication_classes = (SessionAuthentication, BasicAuthentication)
+
+    def get(self,request):
+        user = request.user
+        list1 =[]
+        sizeOfUser = math.sqrt(
+                pow(user.art,2)+pow(user.communication,2)+pow(user.society,2)+pow(user.internation,2)+pow(user.internation,2)+
+                pow(user.leader,2)+pow(user.science,2)+pow(user.logic,2)+pow(user.others,2))
+        for b in AllCourses.objects.all():
+            sizeOfCourse = math.sqrt(
+                pow(b.art,2)+pow(b.communication,2)+pow(b.society,2)+pow(b.internation,2)+\
+                pow(b.internation,2)+pow(b.leader,2)+pow(b.science,2)+pow(b.logic,2)+pow(b.others,2))
+            spotMul = user.art * b.art +user.communication * b.communication+user.society* b.society+\
+                      user.internation* b.internation+user.leader *b.leader+user.science * b.science+\
+                      user.logic*b.logic+user.others*b.others
+            #得到一个分数，是两个向量的夹角，值越大就相似分数越高
+            credit = spotMul/(sizeOfCourse*sizeOfUser)
+            # print(credit)
+
+            list1.append((credit,b.data_id))
+
+        list1.sort()
+        # list.sort()
+        list1.reverse()
+
+
+        result =[]
+        for course in list1[:12]:
+            query = AllCourses.objects.filter(data_id = course[1])
+            for a in query:
+                if a not in result:
+                    result.append(a)
+        serializer = CoursesSerializer(result, many=True)
+        return Response(serializer.data)
+
+
+
+        # print(list[:5])
+

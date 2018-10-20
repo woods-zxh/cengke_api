@@ -15,11 +15,18 @@ class Nuser(AbstractUser):
     can_post = models.BooleanField(default=False)
     term = models.CharField(max_length=20, default="0")
     week = models.CharField(max_length=20, default="0")
-
+    art = models.FloatField(default=0.0)
+    communication = models.FloatField(default=0.0)
+    society = models.FloatField(default=0.0)
+    internation = models.FloatField(default=0.0)
+    leader = models.FloatField(default=0.0)
+    science = models.FloatField(default=0.0)
+    logic = models.FloatField(default=0.0)
+    others = models.FloatField(default=0.0)
     def __str__(self):
         return self.username
 
-class CourseTable(models.Model):
+class CourseTable(models.Model):#课表
     # id = models.IntegerField(default=0,primary_key=True)
     user = models.ForeignKey(Nuser, on_delete=models.CASCADE)
     course_id = models.IntegerField()
@@ -27,14 +34,14 @@ class CourseTable(models.Model):
     def __str__(self):
         return self.user.username
 
-class Coursecolle(models.Model):
+class Coursecolle(models.Model):#收藏的课表
     # id = models.IntegerField(default=0,primary_key=True)
     course_id = models.IntegerField()
     user = models.ForeignKey(Nuser, on_delete=models.CASCADE)
     def __str__(self):
         return self.user.username
 
-class Coursehistory(models.Model):
+class Coursehistory(models.Model):#浏览过的课表
     # id = models.IntegerField(default=0,primary_key=True)
     user = models.ForeignKey(Nuser, on_delete=models.CASCADE)
     course_id = models.IntegerField()

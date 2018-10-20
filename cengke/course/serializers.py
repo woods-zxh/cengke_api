@@ -33,3 +33,11 @@ class PushMessageSerializer(serializers.ModelSerializer):
         def create(self, validated_data):
             return PushMessage.objects.create(**validated_data)
 
+class SearchSerializer(serializers.Serializer):
+    keyword = serializers.CharField()
+    start_time = serializers.IntegerField(default=0)
+    end_time = serializers.IntegerField(default=0)
+    area = serializers.IntegerField(default=0)
+    day_in_week=serializers.IntegerField(default=0)
+
+#class RecommendSerializer(serializers.Serializer):

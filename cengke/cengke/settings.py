@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'account',
     'rest_framework',
+    'rest_framework.authtoken',
     'course'
 
 ]
@@ -146,3 +147,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'file').replace('\\','/')
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+

@@ -115,7 +115,7 @@ def spider2(username, password, yzm_text, yzm_cookie):
             course_credit = re.sub('[\r\n\t]', '', td[1].text).split()[0]  # 学分
             course_teacher = re.sub('[\r\n\t]', '', td[3].text).split()[0]  # 授课老师
             course_school = re.sub('[\r\n\t]', '', td[5].text).split()[0]  # 授课学院
-            course_time_place = re.sub('[\r\n\t]', '', td[9].text).split()  # 课程时间和地地点
+            course_time_place = re.sub('[\r\n\t]', '', td[9].text).split()  # 课程时间和地点
             course_type1 = re.sub('[\r\n\t]','',td[10].text).split()  # 课程类型(公选的类型）
             course_type2 = str(course_type1[0]).split('，')#抓取藏在其中的上课地点
             course_type = [course_type2[0]]

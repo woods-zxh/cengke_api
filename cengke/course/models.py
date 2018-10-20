@@ -22,7 +22,6 @@ class Course(models.Model):
     building = models.CharField(default=0, max_length=20,blank=True)
     room = models.CharField(default=0, max_length=20,blank=True)
 
-
     class Meta:
         abstract = True
 
@@ -30,6 +29,17 @@ class Course(models.Model):
 class AllCourses(Course):
     data_id = models.IntegerField(primary_key= True,default=0)
     weight = models.FloatField(default=0.0)
+    art= models.FloatField(default=0.0)
+    communication = models.FloatField(default=0.0)
+    society = models.FloatField(default=0.0)
+    internation= models.FloatField(default=0.0)
+    leader = models.FloatField(default=0.0)
+    science=models.FloatField(default=0.0)
+    logic=models.FloatField(default=0.0)
+    others=models.FloatField(default=0.0)
+
+
+
 
     def __str__(self):
         return self.name
