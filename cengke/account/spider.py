@@ -77,6 +77,7 @@ def spider(username, password, yzm_text, yzm_cookie,course_sum):
     namediv = soup.find_all(attrs={'id': 'nameLable'})
     termspan = soup.find_all(attrs={'id': 'term'})
     school = soup.find_all(attrs={"id":'acade'})
+    print(namediv)
     username = re.sub('[\r\n\t]', '', namediv[0].text).split()
     term = re.sub('[\r\n\t]', '', termspan[0].text).split()
     school = re.sub('[\r\n\t]', '', school[0].text).split()
@@ -89,7 +90,7 @@ def spider(username, password, yzm_text, yzm_cookie,course_sum):
 
     page_iframe = tsoup.find_all(attrs={'id': 'iframe0'})
     # 课程表数据所在的url
-    page_urls = home_url  + page_iframe[0].get('src')[:-19] + "&action=normalLsn&year=2018&term=%C9%CF&state="
+    page_urls = home_url  + page_iframe[0].get('src')[:-19] + "&action=normalLsn&year=2018&term=%CF%C2&state="
     requset = urllib.request.Request(page_urls, headers={'Cookie': yzm_cookie})
     # 课表的详细内容：table_content
     table_content = urllib.request.urlopen(requset).read()
@@ -113,7 +114,7 @@ def historySpider(yzm_cookie,course_sum,page_iframe1):
     table_content = urllib.request.urlopen(requset).read()
     csoup = BeautifulSoup(table_content, 'lxml')
     listTable = csoup.find_all(attrs={'class': 'table listTable'})
-    # 返回一个列表
+
     tr = listTable[0].find_all('tr')
     a = tr[1].find_all("td")
     tr_num = len(tr)
@@ -124,7 +125,11 @@ def historySpider(yzm_cookie,course_sum,page_iframe1):
         course_name = re.sub('[\r\n\t]','',td[1].text).split()[0] # 课程名字
         course_type = re.sub('[\r\n\t]','',td[2].text).split()[0] # 课程类型（必修或选修）
         course_credit = re.sub('[\r\n\t]','',td[3].text) .split()[0] # 学分
-        course_teacher = re.sub('[\r\n\t]','',td[4].text).split()[0] # 授课老师
+
+        if len(td[4])>=10:
+            course_teacher = re.sub('[\r\n\t]','',td[4].text).split()[0] # 授课老师
+        else:
+            course_teacher = ""  # 授课老师
         course_school = re.sub('[\r\n\t]','',td[5].text).split()[0] # 授课学院
 
         course_infor = {

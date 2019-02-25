@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from .courseWeight import makeCourseWeight
 from rest_framework.authtoken.models import Token
-from .serializers import ActivateSerializer,LoginSerializer
+from .serializers import ActivateSerializer,LoginSerializer,LogoutSerializer
 from django.contrib.auth import authenticate, login, logout
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from .models import Nuser
@@ -18,7 +19,8 @@ from rest_framework.status import (
     HTTP_400_BAD_REQUEST,
     HTTP_201_CREATED,
     HTTP_200_OK,
-    HTTP_404_NOT_FOUND, )
+    HTTP_404_NOT_FOUND,
+    HTTP_403_FORBIDDEN)
 from django.views.decorators.csrf import csrf_exempt
 import requests
 from .spider import save_img,spider,table,historySpider
@@ -33,32 +35,63 @@ class LoginView(APIView):
     authentication_classes = (SessionAuthentication,BasicAuthentication)
     @csrf_exempt
     def post(self, request):
-
         serializer = LoginSerializer(data=request.data)
         if serializer.is_valid():
             username = serializer.data['username']
             password = serializer.data['password']
-            user = authenticate(username='2017302580272',password='15270934144zhang')
-            # token = Token.objects.create(user = user)
-            # print((token.key))
-            if user is not None :
-                login(request, user)
-                user = Nuser.objects.get(username=username)
-                reply = {
-                    "real_name": user.real_name,
-                    "school": user.school,
-                    "grade": user.grade,
-                    "term": user.term,
-                    "is_activated": True,
-                }
-                return Response(reply)
+            try:
+                user = authenticate(username=username,password=password)
+            except HTTP_403_FORBIDDEN :
+                return Response("请先退出再切换帐号")
             else:
-                reply = {
-                    "is_activated":False
-                }
-                return Response("NO!")
+                if user is not None :
+                    # login(request, user)
+                    user = Nuser.objects.get(username=username)
+                    if(Token.objects.filter(user=user)):
+                        token = Token.objects.get(user=user)
+                    else:
+                        token = Token.objects.create(user=user)
+
+                    reply = {
+                        "real_name": user.real_name,
+                        "school": user.school,
+                        "grade": user.grade,
+                        "term": user.term,
+                        "is_activated": True,
+                        "token" :token.key,
+                    }
+                    return Response(reply)
+                else:
+                    reply = {
+                        "is_activated":False
+                    }
+                    return Response(reply)
         else:
             return Response(serializer.errors)
+
+#用户登出
+class LogoutView(APIView):
+    permission_classes = [AllowAny]
+    serializer_class = LogoutSerializer
+    authentication_classes = (SessionAuthentication,BasicAuthentication)
+    def post(self,request):
+        # user = request.user
+        # logout(user)
+        serializer = LogoutSerializer(data=request.data)
+        if serializer.is_valid():
+            tokenKey =serializer.data['token']
+            try:
+                token =  Token.objects.get(key = tokenKey)
+            except BaseException:
+                reply = {
+                    "message": "请先登陆"
+                }
+                return Response(reply)
+            token.delete()
+            reply = {
+                "message":"Bye"
+            }
+            return  Response(reply)
 
 
 #激活用户
@@ -74,17 +107,17 @@ class ActivateView(APIView):
         password = serializer.data['password']
         yzm_text = serializer.data['yzm_text']
         yzm_cookie = serializer.data['yzm_cookie']
-        try:
-            course_sum = {}
-            table_content = spider(username, password, yzm_text, yzm_cookie,course_sum)
-            course_infor = table(table_content[1],table_content[0])
-            course_sum1 = {}
-            history_content =historySpider(yzm_cookie, course_sum1,table_content[2])
-        except:
-            reply = {
-                "is_activated": False
-            }
-            return Response(reply)
+
+        course_sum = {}
+        table_content = spider(username, password, yzm_text, yzm_cookie,course_sum)
+        course_infor = table(table_content[1],table_content[0])
+        course_sum1 = {}
+        history_content =historySpider(yzm_cookie, course_sum1,table_content[2])
+        print(history_content)
+        # reply = {
+        #     "is_activated": False
+        # }
+        # return Response(reply)
 
 #创建用户
         c = course_infor
@@ -114,7 +147,7 @@ class ActivateView(APIView):
                 if history_content[key]['course_type'] == "公共选修":
                     a = AllCourses.objects.filter(course_id=history_content[key]['course_id'])
                     for b in a:
-                        print("1111")
+
                         user.coursehistory_set.create(course_id=b.course_id)
                         user.art += b.art
                         user.communication += b.communication
@@ -127,40 +160,36 @@ class ActivateView(APIView):
                         user.save()
 
 
-
-#这里的是用来爬取总数据的
-        # course_infor = spider2(username, password, yzm_text, yzm_cookie)
-        # c = course_infor
-        # for key in c:
-        #
-        #     AllCourses.objects.create(
-        #         data_id=c[key]["data_id"],
-        #         course_id =c[key]["course_id"],
-        #         name = c[key]["name"],
-        #         type = c[key]["type"],
-        #         school = c[key]["school"],
-        #         major = c[key]["major"],
-        #         teacher = c[key]["teacher"],
-        #         credit = c[key]["credit"],
-        #         start_week = c[key]["start_week"],
-        #         end_week = c[key]["end_week"],
-        #         gap = c[key]["gap"],
-        #         day_in_week = c[key]["day_in_week"],
-        #         start_time = c[key]["start_time"],
-        #         end_time = c[key]["end_time"],
-        #         area = c[key]["area"],
-        #         building = c[key]["building"],
-        #         room = c[key]['room'],
-        #         )
-
+        token = Token.objects.create(user=user)
         reply = {
             "real_name": user.real_name,
             "school": user.school,
             "grade": user.grade,
             "term": user.term,
             "is_activated": True,
+            "token": token.key,
+
         }
         return Response(reply)
+
+class Upgrade(APIView):
+    serializer_class = ActivateSerializer
+    permission_classes = [AllowAny]
+    authentication_classes = (SessionAuthentication, BasicAuthentication)
+    @csrf_exempt
+    def post(self, request):
+        serializer = ActivateSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        username = serializer.data['username']
+        password = serializer.data['password']
+        yzm_text = serializer.data['yzm_text']
+        yzm_cookie = serializer.data['yzm_cookie']
+        allCoursesData(username, password, yzm_text, yzm_cookie)
+        reply={
+            "message":"done"
+        }
+        return Response(reply)
+
 
 class VCodeView(APIView):
     permission_classes = [AllowAny]
@@ -176,3 +205,29 @@ class VCodeView(APIView):
         content['yzm_cookie'] = yzm_cookie
         response = Response(content)
         return response
+
+def allCoursesData(username, password, yzm_text, yzm_cookie):
+        course_infor = spider2(username, password, yzm_text, yzm_cookie)
+        c = course_infor
+        for key in c:
+
+            AllCourses.objects.create(
+                data_id=c[key]["data_id"],
+                course_id =c[key]["course_id"],
+                name = c[key]["name"],
+                type = c[key]["type"],
+                school = c[key]["school"],
+                major = c[key]["major"],
+                teacher = c[key]["teacher"],
+                credit = c[key]["credit"],
+                start_week = c[key]["start_week"],
+                end_week = c[key]["end_week"],
+                gap = c[key]["gap"],
+                day_in_week = c[key]["day_in_week"],
+                start_time = c[key]["start_time"],
+                end_time = c[key]["end_time"],
+                area = c[key]["area"],
+                building = c[key]["building"],
+                room = c[key]['room'],
+            )
+            makeCourseWeight()

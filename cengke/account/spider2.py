@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 import re
 import os
 import shutil
-#用来获取静态数据f
+#用来获取静态数据
 def cut_time(time,course_type2):
 
 
@@ -106,6 +106,7 @@ def spider2(username, password, yzm_text, yzm_cookie):
         tsoup = BeautifulSoup(courses, "html")
         listTable = tsoup.find_all(attrs={'class': 'table listTable'})
         tr = listTable[0].find_all('tr')
+        print(page)
         tr_num = len(tr)
         for i in range(1, tr_num):
             td = tr[i].find_all('td')
@@ -121,14 +122,14 @@ def spider2(username, password, yzm_text, yzm_cookie):
             course_type = [course_type2[0]]
             # course_major =re.sub('[\r\n\t]','',td[10].text).split()  #专业
             #处理藏在title中的多个上课地点
-            if len(td[9].attrs)!=0:
-
-                x = td[9]['title'].split('<br/>')[0]
-                y = x[5:].split('\n')[0]+ x[5:].split('\n')[1]
-                course_time_place[0]=y
-                x = td[9]['title'].split('<br/>')[1]
-                y = x.split('\n')[0] + x.split('\n')[1]
-                course_time_place.append(y)
+            # if len(td[9].attrs)!=0:
+            #     x = td[9]['title'].split('<br/>')[0]
+            #     print(td[9].attrs)
+            #     y = x[5:].split('\n')[0]+ x[5:].split('\n')[1]
+            #     course_time_place[0]=y
+            #     x = td[9]['title'].split('<br/>')[1]
+            #     y = x.split('\n')[0] + x.split('\n')[1]
+            #     course_time_place.append(y)
 
                 # course_time_place[0] = re.sub('[\n]', '', td[9]['title'].split('<br/>')[0][3:]).split()
 

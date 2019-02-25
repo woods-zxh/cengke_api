@@ -12,8 +12,12 @@ class BuildingCoursesSerializer(serializers.Serializer):
             raise serializers.ValidationError("The target is not exist .")
         return data
 
+class UserTokenSerializer(serializers.Serializer):
+    token = serializers.CharField()
+
 class CourseIdSerializer(serializers.Serializer):
     data_id = serializers.CharField()
+    token = serializers.CharField()
 
 class CoursesSerializer(serializers.ModelSerializer):
     class Meta:
@@ -26,6 +30,7 @@ class  CourseTableSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class PushMessageSerializer(serializers.ModelSerializer):
+    token = serializers.CharField()
     class Meta:
         model = PushMessage
         fields = '__all__'

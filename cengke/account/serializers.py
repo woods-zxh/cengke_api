@@ -42,3 +42,6 @@ class ActivateSerializer(serializers.ModelSerializer):
 class LoginSerializer(serializers.Serializer):
     username = serializers.CharField()
     password = serializers.CharField(label=',write_only=True,Password',style={'input_type': 'password'})
+
+class LogoutSerializer(serializers.Serializer):
+    token =   serializers.CharField()

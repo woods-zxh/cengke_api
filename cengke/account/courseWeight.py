@@ -1,4 +1,4 @@
-from .models import AllCourses
+from course.models import AllCourses
 
 def makeCourseWeight():
     for course in AllCourses.objects.all():

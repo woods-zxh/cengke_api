@@ -50,5 +50,3 @@ class Coursehistory(models.Model):#浏览过的课表
     def __str__(self):
         return self.user.username
 
-
-# a.coursetable_set.create(name = "高等数学B1" ,type = "专业必修",school = "计算机学院" , major = "software",teacher="woods",credit = "1.0",start_week=2,end_week = 12,gap = 0,day_in_week = 4,start_time = 9,end_time = 11,area = 3, building = 301,room = 101)

@@ -1,18 +1,9 @@
-from account.models import CourseTable
-from .courseWeight import makeCourseWeight
+from account.models import CourseTable,Coursehistory
 from rest_framework.views import APIView
+from rest_framework.authtoken.models import Token
 from rest_framework.permissions import (
-    IsAdminUser,
-    IsAuthenticated,
-    AllowAny,
-    IsAuthenticatedOrReadOnly
+    AllowAny
 )
-
-from rest_framework.status import (
-    HTTP_400_BAD_REQUEST,
-    HTTP_201_CREATED,
-    HTTP_200_OK,
-    HTTP_404_NOT_FOUND, )
 
 from .serializers import (
     BuildingCoursesSerializer,
@@ -21,10 +12,10 @@ from .serializers import (
     CourseTableSerializer,
     CourseIdSerializer,
     SearchSerializer,
+    UserTokenSerializer,
     )
 
 from .models import AllCourses,PushMessage
-from django.contrib.auth import authenticate, login, logout
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.response import Response
 # from django.db.modelsimports Q
@@ -37,26 +28,34 @@ DoItCourseWeight=0.02
 CollectUserWeight = 0.2
 CollectCourseWeight=0.02
 
+#获得课表
 class CourseTableView(APIView):
     permission_classes = [AllowAny]
-    # serializer_class = Serializer
+    serializer_class = CourseTableSerializer
     authentication_classes = (SessionAuthentication, BasicAuthentication)
 
-    def get(self,request):
-        # makeCourseWeight()
-        user = request.user
-        course_set = CourseTable.objects.filter(user = user)
-        queryset1 = AllCourses.objects.filter(course_id=20172005341)
-        print(course_set)
-        for course in course_set:
-            queryset = AllCourses.objects.filter(course_id=course.course_id)
-            queryset1 =  queryset1|queryset
+    def get(self,request,token):
+            try:
+                token = Token.objects.get(key=token)
+            except BaseException:
+                reply = {
+                    "message": "请先登陆"
+                }
+                return Response(reply)
+            user = token.user
+            course_set = CourseTable.objects.filter(user = user)
+            queryset1 = AllCourses.objects.filter(course_id=000)
 
-        # if queryset.exists():
-        serializer = CourseTableSerializer(queryset1 ,many=True)
+            for course in course_set:
+                queryset = AllCourses.objects.filter(course_id=course.course_id)
 
-        response = Response(serializer.data)
-        return response
+                queryset1 =  queryset1|queryset
+
+            # if queryset.exists():
+            serializer = CourseTableSerializer(queryset1,many=True)
+
+            response = Response(serializer.data)
+            return response
         #
         # reply = {"message":"wrong"}
         # Response(reply)
@@ -100,13 +99,22 @@ class DoItView(APIView):
     permission_classes = [AllowAny]
     serializer_class = CourseIdSerializer
     authentication_classes = (SessionAuthentication, BasicAuthentication)
-
     def post(self, request):
-        user  = request.user
         serializer = CourseIdSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
+        tokenKey = serializer.data['token']
+        try:
+            token = Token.objects.get(key=tokenKey)
+        except BaseException:
+            reply = {
+                "message": "请先登陆"
+            }
+            return Response(reply)
+        user = token.user
+
         data_id = serializer.data['data_id']
         queryset = AllCourses.objects.filter(data_id=data_id)
+        print(queryset)
         #创建用户的足迹以及反馈给课程
         for b in queryset:
             user.coursehistory_set.create(course_id = b.course_id)
@@ -130,8 +138,10 @@ class DoItView(APIView):
             b.logic += DoItCourseWeight * (user.logic-DoItUserWeight*b.logic)
             b.others += DoItCourseWeight * (user.others-DoItUserWeight*b.others)
             b.save()
-
-        response = Response("OK!")
+        reply = {
+            "message": "done"
+        }
+        response = Response(reply)
         return response
 
 #课程收藏
@@ -141,9 +151,18 @@ class CollectView(APIView):
     authentication_classes = (SessionAuthentication, BasicAuthentication)
 
     def post(self, request):
-        user = request.user
+
         serializer = CourseIdSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
+        tokenKey = serializer.data['token']
+        try:
+            token = Token.objects.get(key=tokenKey)
+        except BaseException:
+            reply = {
+                "message": "请先登陆"
+            }
+            return Response(reply)
+        user = token.user
         data_id = serializer.data['data_id']
         queryset = AllCourses.objects.filter(data_id=data_id)
         for b in queryset:
@@ -170,7 +189,10 @@ class CollectView(APIView):
             b.others += DoItCourseWeight * (user.others - DoItUserWeight * b.others)
             b.save()
 
-        response = Response("OK!")
+        reply = {
+            "message": "done"
+        }
+        response = Response(reply)
         return response
 
 #官方用户推送课程
@@ -180,25 +202,28 @@ class PushView(APIView):
     authentication_classes = (SessionAuthentication, BasicAuthentication)
 
     def post(self,request):
-        user = request.user
+        serializer = PushMessageSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        tokenKey = serializer.data['token']
+        try:
+            token = Token.objects.get(key=tokenKey)
+        except BaseException:
+            reply = {
+                "message": "请先登陆"
+            }
+            return Response(reply)
+        user = token.user
         if(user.can_post):
-            serializer = PushMessageSerializer(data = request.data)
-            serializer.is_valid(raise_exception=True)
             serializer.save()
-
-            # author =serializer.data['author']
-            # title = serializer.data['title']
-            # begin_hour = serializer.data['begin_hour']
-            # end_hour = serializer.data['end_hour']
-            # begin_minute = serializer.data['begin_minute']
-            # end_minute = serializer.data['end_minute ']
-            # area = serializer.data['area']
-            # building =  serializer.data['building']
-            # room =  serializer.data['room']
-            # introduce =  serializer.data['introduce']
-            # created_time =  serializer.data['created_time']
             response = Response("OK!")
             return response
+        else:
+            reply = {
+                "message": "您没有权限发布"
+            }
+            response = Response(reply)
+            return  response
+
 
 #获得官方推送
 class GetPushView(APIView):
@@ -251,8 +276,15 @@ class RecommmentView(APIView):
     serializer_class = CoursesSerializer
     authentication_classes = (SessionAuthentication, BasicAuthentication)
 
-    def get(self,request):
-        user = request.user
+    def get(self,request,token):
+        try:
+            token = Token.objects.get(key=token)
+        except BaseException:
+            reply ={
+                "message": "请先登陆"
+            }
+            return Response(reply)
+        user = token.user
         list1 =[]
         sizeOfUser = math.sqrt(
                 pow(user.art,2)+pow(user.communication,2)+pow(user.society,2)+pow(user.internation,2)+pow(user.internation,2)+
@@ -284,7 +316,31 @@ class RecommmentView(APIView):
         serializer = CoursesSerializer(result, many=True)
         return Response(serializer.data)
 
+#获得蹭课足迹
+class CourseHistoryView(APIView):
+    permission_classes = [AllowAny]
+    serializer_class = CourseTableSerializer
+    authentication_classes = (SessionAuthentication, BasicAuthentication)
+    def get(self,request,token):
+        # makeCourseWeight()
+            try:
+                token = Token.objects.get(key=token)
+            except BaseException:
+                reply = {
+                    "message": "请先登陆"
+                }
+                return Response(reply)
+            user = token.user
+            course_set = Coursehistory.objects.filter(user = user)
+            queryset1 = AllCourses.objects.filter(course_id=000)
 
+            for course in course_set:
+                queryset = AllCourses.objects.filter(course_id=course.course_id)
 
-        # print(list[:5])
+                queryset1 =  queryset1|queryset
 
+            # if queryset.exists():
+            serializer = CourseTableSerializer(queryset1 ,many=True)
+
+            response = Response(serializer.data)
+            return response
