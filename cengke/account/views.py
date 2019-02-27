@@ -108,68 +108,71 @@ class ActivateView(APIView):
         yzm_text = serializer.data['yzm_text']
         yzm_cookie = serializer.data['yzm_cookie']
 
-        course_sum = {}
-        table_content = spider(username, password, yzm_text, yzm_cookie,course_sum)
-        course_infor = table(table_content[1],table_content[0])
-        course_sum1 = {}
-        history_content =historySpider(yzm_cookie, course_sum1,table_content[2])
-        print(history_content)
-        # reply = {
-        #     "is_activated": False
-        # }
-        # return Response(reply)
+        try:
 
-#创建用户
-        c = course_infor
-        if(Nuser.objects.filter(username= username)):
-            return Response({"error":"username has been created"})
-        else:
+            course_sum = {}
+            table_content = spider(username, password, yzm_text, yzm_cookie,course_sum)
+            course_infor = table(table_content[1],table_content[0])
+            course_sum1 = {}
+            history_content =historySpider(yzm_cookie, course_sum1,table_content[2])
 
-            user = Nuser.objects.create_user(
-                                username =username,
-                                password = password,
-                                grade =username[:4],
-                                school=c["school"][0],
-                                real_name =c["username"][0],
-                                term = c["term"][0],
-                                week = c["term"][1],
-            )
-#创建用户的课程表
-            user = Nuser.objects.get(username=username)
-            cout = 1
-            for key in c:
-                if cout > 3:
-                    user.coursetable_set.create(course_id=c[key]["course_id"])
-                else:
-                    cout = cout + 1
-#创建用户的选过的课并生成用户的初始属性
-            for key in history_content:
-                if history_content[key]['course_type'] == "公共选修":
-                    a = AllCourses.objects.filter(course_id=history_content[key]['course_id'])
-                    for b in a:
+    #创建用户
+            c = course_infor
+            if(Nuser.objects.filter(username= username)):
+                return Response({"error":"username has been created"})
+            else:
 
-                        user.coursehistory_set.create(course_id=b.course_id)
-                        user.art += b.art
-                        user.communication += b.communication
-                        user.society += b.society
-                        user.internation += b.internation
-                        user.leader += b.leader
-                        user.science += b.science
-                        user.logic += b.logic
-                        user.others += b.others
-                        user.save()
+                user = Nuser.objects.create_user(
+                                    username =username,
+                                    password = password,
+                                    grade =username[:4],
+                                    school=c["school"][0],
+                                    real_name =c["username"][0],
+                                    term = c["term"][0],
+                                    week = c["term"][1],
+                )
+    #创建用户的课程表
+                user = Nuser.objects.get(username=username)
+                cout = 1
+                for key in c:
+                    if cout > 3:
+                        user.coursetable_set.create(course_id=c[key]["course_id"])
+                    else:
+                        cout = cout + 1
+    #创建用户的选过的课并生成用户的初始属性
+                for key in history_content:
+                    if history_content[key]['course_type'] == "公共选修":
+                        a = AllCourses.objects.filter(course_id=history_content[key]['course_id'])
+                        for b in a:
+
+                            user.coursehistory_set.create(course_id=b.course_id)
+                            user.art += b.art
+                            user.communication += b.communication
+                            user.society += b.society
+                            user.internation += b.internation
+                            user.leader += b.leader
+                            user.science += b.science
+                            user.logic += b.logic
+                            user.others += b.others
+                            user.save()
 
 
-        token = Token.objects.create(user=user)
-        reply = {
-            "real_name": user.real_name,
-            "school": user.school,
-            "grade": user.grade,
-            "term": user.term,
-            "is_activated": True,
-            "token": token.key,
+            token = Token.objects.create(user=user)
+            reply = {
+                "real_name": user.real_name,
+                "school": user.school,
+                "grade": user.grade,
+                "term": user.term,
+                "is_activated": True,
+                "token": token.key,
 
-        }
+            }
+
+        except BaseException:
+            reply = {
+                "is_activated": False
+             }
+
         return Response(reply)
 
 class Upgrade(APIView):
