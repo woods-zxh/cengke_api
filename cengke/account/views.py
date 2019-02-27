@@ -42,7 +42,7 @@ class LoginView(APIView):
             try:
                 user = authenticate(username=username,password=password)
             except HTTP_403_FORBIDDEN :
-                return Response("请先退出再切换帐号")
+                return Response("请先退出当前帐号再切换帐号")
             else:
                 if user is not None :
                     # login(request, user)
@@ -62,9 +62,15 @@ class LoginView(APIView):
                     }
                     return Response(reply)
                 else:
-                    reply = {
-                        "is_activated":False
-                    }
+                    user1 = Nuser.objects.filter(username=username)
+                    if user1 is not None:
+                        reply = {
+                            "is_pwd_correct":False
+                        }
+                    else:
+                        reply={
+                            "is_activated":False
+                        }
                     return Response(reply)
         else:
             return Response(serializer.errors)
