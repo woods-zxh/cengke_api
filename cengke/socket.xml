@@ -1,6 +1,6 @@
 <uwsgi> 
-    <socket>:8000</socket> 
-    <chdir>/home/djangofile/cengke_api/cengke/cengke</chdir> 
+    <socket>:8003</socket> 
+    <chdir>/home/djangofile/cengke_api/cengke_api/cengke</chdir> 
     <module>cengke.wsgi</module> 
     <processes>4</processes> 
     <daemonize>uwsgi.log</daemonize> 

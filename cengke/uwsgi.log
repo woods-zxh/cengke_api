@@ -1,0 +1,499 @@
+*** Starting uWSGI 2.0.17.1 (64bit) on [Mon Feb 25 21:30:22 2019] ***
+compiled with version: 5.4.0 20160609 on 08 September 2018 07:53:10
+os: Linux-4.4.0-93-generic #116-Ubuntu SMP Fri Aug 11 21:17:51 UTC 2017
+nodename: iZwz9hd0mj2wqu4sp8ecifZ
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/djangofile/cengke_api/cengke_api/cengke
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/djangofile/cengke_api/cengke/cengke
+chdir(): No such file or directory [core/uwsgi.c line 2631]
+*** Starting uWSGI 2.0.17.1 (64bit) on [Mon Feb 25 21:34:21 2019] ***
+compiled with version: 5.4.0 20160609 on 08 September 2018 07:53:10
+os: Linux-4.4.0-93-generic #116-Ubuntu SMP Fri Aug 11 21:17:51 UTC 2017
+nodename: iZwz9hd0mj2wqu4sp8ecifZ
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/djangofile/cengke_api/cengke_api/cengke
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/djangofile/cengke_api/cengke_api/cengke/cengke
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 7857
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address :8000 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.2 (default, Nov 23 2017, 16:37:01)  [GCC 5.4.0 20160609]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x2317a00
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 291616 bytes (284 KB) for 4 cores
+*** Operational MODE: preforking ***
+ImportError: No module named 'cengke'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (pid: 917, cores: 1)
+spawned uWSGI worker 2 (pid: 918, cores: 1)
+spawned uWSGI worker 3 (pid: 919, cores: 1)
+spawned uWSGI worker 4 (pid: 920, cores: 1)
+--- no python application found, check your startup logs for errors ---
+[pid: 917|app: -1|req: -1/1] 218.197.153.242 () {40 vars in 619 bytes} [Mon Feb 25 21:34:33 2019] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 917|app: -1|req: -1/2] 218.197.153.242 () {40 vars in 623 bytes} [Mon Feb 25 21:34:49 2019] GET /ko => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 917|app: -1|req: -1/3] 218.197.153.242 () {40 vars in 623 bytes} [Mon Feb 25 21:34:53 2019] GET /ko => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 917|app: -1|req: -1/4] 218.197.153.242 () {40 vars in 623 bytes} [Mon Feb 25 21:34:58 2019] GET /ko => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 917|app: -1|req: -1/5] 218.197.153.242 () {40 vars in 633 bytes} [Mon Feb 25 21:35:50 2019] GET /account => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 917|app: -1|req: -1/6] 218.197.153.242 () {40 vars in 641 bytes} [Mon Feb 25 21:35:56 2019] GET /account/yzm => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 917|app: -1|req: -1/7] 128.65.164.92 () {32 vars in 460 bytes} [Mon Feb 25 21:40:23 2019] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+*** Starting uWSGI 2.0.17.1 (64bit) on [Mon Feb 25 21:42:02 2019] ***
+compiled with version: 5.4.0 20160609 on 08 September 2018 07:53:10
+os: Linux-4.4.0-93-generic #116-Ubuntu SMP Fri Aug 11 21:17:51 UTC 2017
+nodename: iZwz9hd0mj2wqu4sp8ecifZ
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/djangofile/cengke_api/cengke_api/cengke
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/djangofile/cengke_api/cengke_api/cengke/cengke
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 7857
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address :8000 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.2 (default, Nov 23 2017, 16:37:01)  [GCC 5.4.0 20160609]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x11bda10
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 291616 bytes (284 KB) for 4 cores
+*** Operational MODE: preforking ***
+ImportError: No module named 'cengke'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (pid: 1003, cores: 1)
+spawned uWSGI worker 2 (pid: 1004, cores: 1)
+spawned uWSGI worker 3 (pid: 1005, cores: 1)
+spawned uWSGI worker 4 (pid: 1006, cores: 1)
+--- no python application found, check your startup logs for errors ---
+[pid: 1003|app: -1|req: -1/1] 218.197.153.242 () {40 vars in 641 bytes} [Mon Feb 25 21:42:16 2019] GET /account/yzm => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 1003|app: -1|req: -1/2] 218.197.153.242 () {40 vars in 633 bytes} [Mon Feb 25 21:42:20 2019] GET /account => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 1003|app: -1|req: -1/3] 218.197.153.242 () {40 vars in 619 bytes} [Mon Feb 25 21:42:26 2019] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+*** Starting uWSGI 2.0.17.1 (64bit) on [Mon Feb 25 21:44:57 2019] ***
+compiled with version: 5.4.0 20160609 on 08 September 2018 07:53:10
+os: Linux-4.4.0-93-generic #116-Ubuntu SMP Fri Aug 11 21:17:51 UTC 2017
+nodename: iZwz9hd0mj2wqu4sp8ecifZ
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/djangofile/cengke_api/cengke_api/cengke
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/djangofile/cegke_api/cengke_api/cengke/cengke
+chdir(): No such file or directory [core/uwsgi.c line 2631]
+*** Starting uWSGI 2.0.17.1 (64bit) on [Mon Feb 25 21:52:36 2019] ***
+compiled with version: 5.4.0 20160609 on 08 September 2018 07:53:10
+os: Linux-4.4.0-93-generic #116-Ubuntu SMP Fri Aug 11 21:17:51 UTC 2017
+nodename: iZwz9hd0mj2wqu4sp8ecifZ
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/djangofile/cengke_api/cengke_api/cengke
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/djangofile/cengke_api/cengke_api/cengke/cengke
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 7857
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address :8000 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.2 (default, Nov 23 2017, 16:37:01)  [GCC 5.4.0 20160609]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x17fca10
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 291616 bytes (284 KB) for 4 cores
+*** Operational MODE: preforking ***
+ImportError: No module named 'cengke'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (pid: 1164, cores: 1)
+spawned uWSGI worker 2 (pid: 1165, cores: 1)
+spawned uWSGI worker 3 (pid: 1166, cores: 1)
+spawned uWSGI worker 4 (pid: 1167, cores: 1)
+--- no python application found, check your startup logs for errors ---
+[pid: 1164|app: -1|req: -1/1] 218.197.153.242 () {42 vars in 731 bytes} [Mon Feb 25 21:53:01 2019] GET /account/yzm/ => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 1164|app: -1|req: -1/2] 218.197.153.242 () {42 vars in 721 bytes} [Mon Feb 25 21:53:09 2019] GET /account => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 1164|app: -1|req: -1/3] 218.197.153.242 () {42 vars in 721 bytes} [Mon Feb 25 21:53:37 2019] GET /account => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+*** Starting uWSGI 2.0.17.1 (64bit) on [Mon Feb 25 21:57:42 2019] ***
+compiled with version: 5.4.0 20160609 on 08 September 2018 07:53:10
+os: Linux-4.4.0-93-generic #116-Ubuntu SMP Fri Aug 11 21:17:51 UTC 2017
+nodename: iZwz9hd0mj2wqu4sp8ecifZ
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/djangofile/cengke_api/cengke_api/cengke
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/djangofile/cengke_api/cengke_api/cengke/cengke
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 7857
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address :8002 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.2 (default, Nov 23 2017, 16:37:01)  [GCC 5.4.0 20160609]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x145fa00
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 291616 bytes (284 KB) for 4 cores
+*** Operational MODE: preforking ***
+ImportError: No module named 'cengke'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (pid: 1243, cores: 1)
+spawned uWSGI worker 2 (pid: 1244, cores: 1)
+spawned uWSGI worker 3 (pid: 1245, cores: 1)
+spawned uWSGI worker 4 (pid: 1246, cores: 1)
+--- no python application found, check your startup logs for errors ---
+[pid: 1243|app: -1|req: -1/1] 218.197.153.242 () {42 vars in 721 bytes} [Mon Feb 25 21:58:16 2019] GET /account => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 1243|app: -1|req: -1/2] 218.197.153.242 () {42 vars in 721 bytes} [Mon Feb 25 22:00:13 2019] GET /account => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 1243|app: -1|req: -1/3] 218.197.153.52 () {36 vars in 602 bytes} [Mon Feb 25 22:04:01 2019] GET /favicon.ico => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+*** Starting uWSGI 2.0.17.1 (64bit) on [Mon Feb 25 22:05:20 2019] ***
+compiled with version: 5.4.0 20160609 on 08 September 2018 07:53:10
+os: Linux-4.4.0-93-generic #116-Ubuntu SMP Fri Aug 11 21:17:51 UTC 2017
+nodename: iZwz9hd0mj2wqu4sp8ecifZ
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/djangofile/cengke_api/cengke_api/cengke
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/djangofile/cengke_api/cengke_api/cengke/cengke
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 7857
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address :8003 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.2 (default, Nov 23 2017, 16:37:01)  [GCC 5.4.0 20160609]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x20c4a00
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 291616 bytes (284 KB) for 4 cores
+*** Operational MODE: preforking ***
+ImportError: No module named 'cengke'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (pid: 1344, cores: 1)
+spawned uWSGI worker 2 (pid: 1345, cores: 1)
+spawned uWSGI worker 3 (pid: 1346, cores: 1)
+spawned uWSGI worker 4 (pid: 1347, cores: 1)
+--- no python application found, check your startup logs for errors ---
+[pid: 1345|app: -1|req: -1/1] 218.197.153.242 () {42 vars in 721 bytes} [Mon Feb 25 22:05:31 2019] GET /account => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 1346|app: -1|req: -1/2] 218.197.153.242 () {42 vars in 721 bytes} [Mon Feb 25 22:05:34 2019] GET /account => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 1345|app: -1|req: -1/3] 218.197.153.242 () {42 vars in 721 bytes} [Mon Feb 25 22:11:04 2019] GET /account => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 1347|app: -1|req: -1/4] 218.197.153.242 () {42 vars in 721 bytes} [Mon Feb 25 22:11:08 2019] GET /account => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 1345|app: -1|req: -1/5] 218.197.153.242 () {42 vars in 721 bytes} [Mon Feb 25 22:13:46 2019] GET /account => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+*** Starting uWSGI 2.0.17.1 (64bit) on [Mon Feb 25 22:14:48 2019] ***
+compiled with version: 5.4.0 20160609 on 08 September 2018 07:53:10
+os: Linux-4.4.0-93-generic #116-Ubuntu SMP Fri Aug 11 21:17:51 UTC 2017
+nodename: iZwz9hd0mj2wqu4sp8ecifZ
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/djangofile/cengke_api/cengke_api/cengke
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/djangofile/cengke_api/cengke_api/cengke/cengke
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 7857
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address :8003 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.2 (default, Nov 23 2017, 16:37:01)  [GCC 5.4.0 20160609]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x1281a00
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 291616 bytes (284 KB) for 4 cores
+*** Operational MODE: preforking ***
+ImportError: No module named 'cengke'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (pid: 1458, cores: 1)
+spawned uWSGI worker 2 (pid: 1459, cores: 1)
+spawned uWSGI worker 3 (pid: 1460, cores: 1)
+spawned uWSGI worker 4 (pid: 1461, cores: 1)
+--- no python application found, check your startup logs for errors ---
+[pid: 1458|app: -1|req: -1/1] 218.197.153.242 () {42 vars in 721 bytes} [Mon Feb 25 22:14:54 2019] GET /account => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 1458|app: -1|req: -1/2] 218.197.153.242 () {42 vars in 721 bytes} [Mon Feb 25 22:14:57 2019] GET /account => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 1458|app: -1|req: -1/3] 218.197.153.242 () {42 vars in 707 bytes} [Mon Feb 25 22:20:38 2019] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 1458|app: -1|req: -1/4] 218.197.153.242 () {42 vars in 707 bytes} [Mon Feb 25 22:20:41 2019] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 1458|app: -1|req: -1/5] 218.197.153.242 () {42 vars in 721 bytes} [Mon Feb 25 22:20:45 2019] GET /course/ => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+*** Starting uWSGI 2.0.17.1 (64bit) on [Mon Feb 25 22:29:11 2019] ***
+compiled with version: 5.4.0 20160609 on 08 September 2018 07:53:10
+os: Linux-4.4.0-93-generic #116-Ubuntu SMP Fri Aug 11 21:17:51 UTC 2017
+nodename: iZwz9hd0mj2wqu4sp8ecifZ
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/djangofile/cengke_api/cengke_api/cengke
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/djangofile/cengke_api/cengke_api/cengke
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 7857
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address :8003 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.2 (default, Nov 23 2017, 16:37:01)  [GCC 5.4.0 20160609]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0xfdcc60
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 291616 bytes (284 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0xfdcc60 pid: 1593 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (pid: 1593, cores: 1)
+spawned uWSGI worker 2 (pid: 1595, cores: 1)
+spawned uWSGI worker 3 (pid: 1596, cores: 1)
+spawned uWSGI worker 4 (pid: 1597, cores: 1)
+[pid: 1593|app: 0|req: 1/1] 218.197.153.242 () {40 vars in 619 bytes} [Mon Feb 25 14:29:42 2019] GET / => generated 74 bytes in 160 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 1/2] 218.197.153.242 () {40 vars in 619 bytes} [Mon Feb 25 14:29:45 2019] GET / => generated 74 bytes in 150 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1596|app: 0|req: 1/3] 218.197.153.242 () {40 vars in 633 bytes} [Mon Feb 25 14:29:51 2019] GET /account => generated 81 bytes in 154 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 2/4] 218.197.153.242 () {40 vars in 641 bytes} [Mon Feb 25 14:29:59 2019] GET /account/yzm => generated 0 bytes in 1 msecs (HTTP/1.1 301) 3 headers in 118 bytes (1 switches on core 0)
+[pid: 1593|app: 0|req: 2/5] 218.197.153.242 () {40 vars in 643 bytes} [Mon Feb 25 14:29:59 2019] GET /account/yzm/ => generated 5322 bytes in 84 msecs (HTTP/1.1 200) 5 headers in 159 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 3/6] 218.197.153.242 () {40 vars in 643 bytes} [Mon Feb 25 14:33:29 2019] GET /account/yzm/ => generated 5322 bytes in 76 msecs (HTTP/1.1 200) 5 headers in 159 bytes (1 switches on core 0)
+[pid: 1596|app: 0|req: 2/7] 218.197.153.242 () {40 vars in 645 bytes} [Mon Feb 25 14:34:18 2019] GET /account/admin => generated 87 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1593|app: 0|req: 3/8] 218.197.153.242 () {40 vars in 629 bytes} [Mon Feb 25 14:34:24 2019] GET /admin => generated 0 bytes in 0 msecs (HTTP/1.1 301) 3 headers in 112 bytes (1 switches on core 0)
+[pid: 1597|app: 0|req: 1/9] 218.197.153.242 () {40 vars in 631 bytes} [Mon Feb 25 14:34:24 2019] GET /admin/ => generated 0 bytes in 157 msecs (HTTP/1.1 302) 7 headers in 265 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 4/10] 218.197.153.242 () {40 vars in 668 bytes} [Mon Feb 25 14:34:24 2019] GET /admin/login/?next=/admin/ => generated 1855 bytes in 32 msecs (HTTP/1.1 200) 7 headers in 381 bytes (1 switches on core 0)
+[pid: 1596|app: 0|req: 3/11] 218.197.153.242 () {48 vars in 938 bytes} [Mon Feb 25 14:34:32 2019] POST /admin/login/?next=/admin/ => generated 0 bytes in 229 msecs (HTTP/1.1 302) 9 headers in 531 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 5/12] 218.197.153.242 () {44 vars in 828 bytes} [Mon Feb 25 14:34:32 2019] GET /admin/ => generated 3905 bytes in 22 msecs (HTTP/1.1 200) 6 headers in 227 bytes (1 switches on core 0)
+[pid: 1596|app: 0|req: 4/13] 218.197.153.242 () {44 vars in 837 bytes} [Mon Feb 25 14:34:35 2019] GET /admin/account/nuser/ => generated 4612 bytes in 56 msecs (HTTP/1.1 200) 7 headers in 381 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 6/14] 218.197.153.242 () {42 vars in 742 bytes} [Mon Feb 25 14:34:35 2019] GET /admin/jsi18n/ => generated 3185 bytes in 6 msecs (HTTP/1.1 200) 4 headers in 115 bytes (1 switches on core 0)
+[pid: 1597|app: 0|req: 2/15] 218.197.153.242 () {42 vars in 778 bytes} [Mon Feb 25 14:34:55 2019] GET /account/login => generated 0 bytes in 0 msecs (HTTP/1.1 301) 3 headers in 120 bytes (1 switches on core 0)
+[pid: 1593|app: 0|req: 4/16] 218.197.153.242 () {42 vars in 780 bytes} [Mon Feb 25 14:34:55 2019] GET /account/login/ => generated 7311 bytes in 25 msecs (HTTP/1.1 405) 6 headers in 324 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 7/17] 218.197.153.242 () {48 vars in 1052 bytes} [Mon Feb 25 14:35:13 2019] POST /account/login/ => generated 7526 bytes in 108 msecs (HTTP/1.1 200) 6 headers in 308 bytes (1 switches on core 0)
+[pid: 1596|app: 0|req: 5/18] 218.197.153.242 () {42 vars in 784 bytes} [Mon Feb 25 14:35:24 2019] GET /account/activate => generated 0 bytes in 0 msecs (HTTP/1.1 301) 3 headers in 123 bytes (1 switches on core 0)
+[pid: 1593|app: 0|req: 5/19] 218.197.153.242 () {42 vars in 786 bytes} [Mon Feb 25 14:35:24 2019] GET /account/activate/ => generated 7834 bytes in 14 msecs (HTTP/1.1 405) 6 headers in 324 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 8/20] 218.197.153.242 () {44 vars in 756 bytes} [Mon Feb 25 14:45:23 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1597|app: 0|req: 3/21] 218.197.153.242 () {42 vars in 723 bytes} [Mon Feb 25 14:45:23 2019] GET /favicon.ico => generated 85 bytes in 11 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 9/22] 101.91.60.11 () {40 vars in 618 bytes} [Mon Feb 25 14:45:26 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1593|app: 0|req: 6/23] 61.151.178.165 () {36 vars in 503 bytes} [Mon Feb 25 14:46:03 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1596|app: 0|req: 6/24] 37.120.129.42 () {34 vars in 571 bytes} [Mon Feb 25 15:15:21 2019] GET /favicon.ico => generated 85 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 10/25] 186.75.136.226 () {26 vars in 278 bytes} [Mon Feb 25 16:29:32 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.0 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1596|app: 0|req: 7/26] 80.82.70.187 () {32 vars in 429 bytes} [Mon Feb 25 16:50:08 2019] GET /cache/global/img/gs.gif => generated 97 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1593|app: 0|req: 7/27] 119.23.174.205 () {26 vars in 278 bytes} [Mon Feb 25 17:20:06 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.0 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 11/28] 212.83.157.98 () {30 vars in 372 bytes} [Mon Feb 25 17:54:52 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.0 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1593|app: 0|req: 8/29] 191.205.221.246 () {32 vars in 469 bytes} [Mon Feb 25 18:13:54 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1596|app: 0|req: 8/30] 120.27.244.100 () {32 vars in 365 bytes} [Mon Feb 25 18:23:29 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1597|app: 0|req: 4/31] 95.37.209.141 () {32 vars in 460 bytes} [Mon Feb 25 18:51:46 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 12/32] 209.17.96.218 () {30 vars in 405 bytes} [Mon Feb 25 19:17:24 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1593|app: 0|req: 9/33] 47.92.105.73 () {34 vars in 470 bytes} [Mon Feb 25 19:21:39 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1596|app: 0|req: 9/34] 103.240.77.52 () {26 vars in 277 bytes} [Mon Feb 25 19:49:56 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.0 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1597|app: 0|req: 5/35] 190.114.234.176 () {32 vars in 469 bytes} [Mon Feb 25 20:27:59 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1593|app: 0|req: 10/36] 104.131.146.78 () {34 vars in 391 bytes} [Mon Feb 25 20:30:42 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1596|app: 0|req: 10/37] 200.205.139.99 () {32 vars in 461 bytes} [Mon Feb 25 20:54:06 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 13/38] 106.15.76.85 () {26 vars in 276 bytes} [Mon Feb 25 21:29:47 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.0 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1597|app: 0|req: 6/39] 167.249.103.140 () {32 vars in 462 bytes} [Mon Feb 25 22:55:40 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1593|app: 0|req: 11/40] 31.207.65.18 () {32 vars in 459 bytes} [Mon Feb 25 23:28:51 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 14/41] 178.79.181.200 () {34 vars in 480 bytes} [Mon Feb 25 23:55:47 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1597|app: 0|req: 7/42] 101.132.177.14 () {34 vars in 497 bytes} [Tue Feb 26 00:39:35 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1596|app: 0|req: 11/43] 47.98.60.52 () {34 vars in 490 bytes} [Tue Feb 26 00:43:38 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1593|app: 0|req: 12/44] 34.222.78.129 () {36 vars in 518 bytes} [Tue Feb 26 00:43:52 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 15/45] 35.162.15.95 () {40 vars in 662 bytes} [Tue Feb 26 00:43:54 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1597|app: 0|req: 8/46] 218.197.153.242 () {40 vars in 683 bytes} [Tue Feb 26 00:44:07 2019] GET /favicon.ico => generated 85 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1596|app: 0|req: 12/47] 116.212.150.8 () {32 vars in 461 bytes} [Tue Feb 26 01:07:15 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1593|app: 0|req: 13/48] 5.40.192.232 () {32 vars in 459 bytes} [Tue Feb 26 01:25:42 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 16/49] 80.82.70.187 () {32 vars in 429 bytes} [Tue Feb 26 02:51:58 2019] GET /cache/global/img/gs.gif => generated 97 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1597|app: 0|req: 9/50] 91.207.185.218 () {32 vars in 461 bytes} [Tue Feb 26 04:11:40 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1596|app: 0|req: 13/51] 203.150.177.135 () {38 vars in 619 bytes} [Tue Feb 26 04:17:48 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1593|app: 0|req: 14/52] 218.197.153.41 () {46 vars in 748 bytes} [Tue Feb 26 05:11:02 2019] GET /download/ => generated 83 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 17/53] 218.197.153.41 () {44 vars in 717 bytes} [Tue Feb 26 05:11:02 2019] GET /favicon.ico => generated 85 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1597|app: 0|req: 10/54] 212.83.157.98 () {30 vars in 372 bytes} [Tue Feb 26 05:32:19 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.0 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1596|app: 0|req: 14/55] 200.196.36.127 () {32 vars in 461 bytes} [Tue Feb 26 05:41:25 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1593|app: 0|req: 15/56] 14.199.33.138 () {38 vars in 526 bytes} [Tue Feb 26 05:42:32 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.0 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1597|app: 0|req: 11/57] 218.197.153.242 () {34 vars in 418 bytes} [Tue Feb 26 07:56:20 2019] GET /account/yzm/ => generated 210 bytes in 55 msecs (HTTP/1.1 200) 5 headers in 150 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 18/58] 218.197.153.242 () {34 vars in 502 bytes} [Tue Feb 26 07:56:20 2019] GET /account/media/yzm/3D7067438BDCBE0C9A816EE0B7EF4087.jpg => generated 2430 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 4 headers in 142 bytes (0 switches on core 0)
+[pid: 1593|app: 0|req: 16/59] 218.197.153.242 () {40 vars in 688 bytes} [Tue Feb 26 07:58:35 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1596|app: 0|req: 15/60] 218.197.153.242 () {40 vars in 716 bytes} [Tue Feb 26 07:58:51 2019] GET /account/login/ => generated 7277 bytes in 20 msecs (HTTP/1.1 405) 6 headers in 324 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 19/61] 218.197.153.242 () {52 vars in 1107 bytes} [Tue Feb 26 07:59:05 2019] POST /account/login/ => generated 7224 bytes in 100 msecs (HTTP/1.1 200) 6 headers in 308 bytes (1 switches on core 0)
+[pid: 1596|app: 0|req: 16/62] 218.197.153.242 () {42 vars in 811 bytes} [Tue Feb 26 08:07:39 2019] GET /account/activate/ => generated 7800 bytes in 10 msecs (HTTP/1.1 405) 6 headers in 324 bytes (1 switches on core 0)
+[]
+[pid: 1595|app: 0|req: 20/63] 218.197.153.242 () {52 vars in 1116 bytes} [Tue Feb 26 08:07:43 2019] POST /account/activate/ => generated 27 bytes in 121 msecs (HTTP/1.1 500) 4 headers in 126 bytes (1 switches on core 0)
+[]
+[pid: 1596|app: 0|req: 17/64] 218.197.153.242 () {52 vars in 1116 bytes} [Tue Feb 26 08:07:52 2019] POST /account/activate/ => generated 27 bytes in 249 msecs (HTTP/1.1 500) 4 headers in 126 bytes (1 switches on core 0)
+[]
+[pid: 1595|app: 0|req: 21/65] 218.197.153.242 () {52 vars in 1116 bytes} [Tue Feb 26 08:08:05 2019] POST /account/activate/ => generated 27 bytes in 103 msecs (HTTP/1.1 500) 4 headers in 126 bytes (1 switches on core 0)
+[]
+[pid: 1596|app: 0|req: 18/66] 218.197.153.242 () {52 vars in 1116 bytes} [Tue Feb 26 08:08:26 2019] POST /account/activate/ => generated 27 bytes in 102 msecs (HTTP/1.1 500) 4 headers in 126 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 22/67] 101.91.60.11 () {38 vars in 661 bytes} [Tue Feb 26 08:08:39 2019] GET /account/activate => generated 0 bytes in 0 msecs (HTTP/1.1 301) 3 headers in 123 bytes (1 switches on core 0)
+[pid: 1593|app: 0|req: 17/68] 218.197.153.242 () {40 vars in 683 bytes} [Tue Feb 26 08:08:57 2019] GET /favicon.ico => generated 85 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1597|app: 0|req: 12/69] 218.197.153.242 () {42 vars in 802 bytes} [Tue Feb 26 08:09:05 2019] GET //account/yzm/ => generated 5322 bytes in 65 msecs (HTTP/1.1 200) 5 headers in 159 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 23/70] 218.197.153.242 () {42 vars in 801 bytes} [Tue Feb 26 08:09:08 2019] GET /account/yzm/ => generated 5322 bytes in 56 msecs (HTTP/1.1 200) 5 headers in 159 bytes (1 switches on core 0)
+[pid: 1596|app: 0|req: 19/71] 218.197.153.242 () {42 vars in 869 bytes} [Tue Feb 26 08:09:29 2019] GET /media/yzm/8F5F419007E93C4B194CBE08034AD276.jpg => generated 120 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 101 bytes (1 switches on core 0)
+[pid: 1593|app: 0|req: 18/72] 218.197.153.242 () {42 vars in 885 bytes} [Tue Feb 26 08:09:34 2019] GET /account/media/yzm/8F5F419007E93C4B194CBE08034AD276.jpg => generated 2615 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 4 headers in 142 bytes (0 switches on core 0)
+[pid: 1597|app: 0|req: 13/73] 61.151.178.177 () {38 vars in 691 bytes} [Tue Feb 26 08:10:05 2019] GET //account/yzm => generated 0 bytes in 0 msecs (HTTP/1.1 301) 3 headers in 118 bytes (1 switches on core 0)
+[pid: 1597|app: 0|req: 14/74] 117.136.52.245 () {44 vars in 771 bytes} [Tue Feb 26 08:10:39 2019] GET /activate => generated 82 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1593|app: 0|req: 19/75] 117.136.52.245 () {42 vars in 730 bytes} [Tue Feb 26 08:10:39 2019] GET /favicon.ico => generated 85 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1596|app: 0|req: 20/76] 117.136.52.245 () {46 vars in 834 bytes} [Tue Feb 26 08:10:47 2019] GET /account/activate => generated 0 bytes in 0 msecs (HTTP/1.1 301) 3 headers in 123 bytes (1 switches on core 0)
+[pid: 1597|app: 0|req: 15/77] 117.136.52.245 () {46 vars in 836 bytes} [Tue Feb 26 08:10:48 2019] GET /account/activate/ => generated 7800 bytes in 17 msecs (HTTP/1.1 405) 6 headers in 324 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 24/78] 117.136.52.245 () {44 vars in 828 bytes} [Tue Feb 26 08:10:49 2019] GET /favicon.ico => generated 85 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[]
+[pid: 1593|app: 0|req: 20/79] 117.136.52.245 () {54 vars in 1176 bytes} [Tue Feb 26 08:11:07 2019] POST /account/activate/ => generated 27 bytes in 108 msecs (HTTP/1.1 500) 4 headers in 126 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 25/80] 117.136.52.245 () {46 vars in 912 bytes} [Tue Feb 26 08:11:11 2019] GET /account/activate/ => generated 7800 bytes in 10 msecs (HTTP/1.1 405) 6 headers in 324 bytes (1 switches on core 0)
+[<div id="nameLable">
+	            	周健恒
+	            	<img src="../images/login_info_arrow.png"/>
+</div>]
+{0: {'course_type': '专业必修', 'course_teacher': '', 'course_school': '国际软件学院', 'course_credit': '1.0', 'course_id': '20171030072', 'course_name ': '信息系统导论'}, 1: {'course_type': '专业必修', 'course_teacher': '', 'course_school': '国际软件学院', 'course_credit': '0.5', 'course_id': '20171030077', 'course_name ': '信息系统导论实验'}, 2: {'course_type': '专业必修', 'course_teacher': '', 'course_school': '国际软件学院', 'course_credit': '2.0', 'course_id': '20171030083', 'course_name ': '计算机基础及应用'}, 3: {'course_type': '专业必修', 'course_teacher': '', 'course_school': '国际软件学院', 'course_credit': '0.5', 'course_id': '20171030087', 'course_name ': '计算机基础及应用上机1'}, 4: {'course_type': '专业必修', 'course_teacher': '', 'course_school': '国际软件学院', 'course_credit': '2.0', 'course_id': '20171030139', 'course_name ': '英语听说1'}, 5: {'course_type': '公共必修', 'course_teacher': '', 'course_school': '体育部', 'course_credit': '1.0', 'course_id': '20171040557', 'course_name ': '篮球（初级）'}, 6: {'course_type': '公共必修', 'course_teacher': '', 'course_school': '军事教研室', 'course_credit': '1.0', 'course_id': '20171041038', 'course_name ': '军事理论'}, 7: {'course_type': '公共必修', 'course_teacher': '', 'course_school': '大学英语部', 'course_credit': '3.0', 'course_id': '20171055555', 'course_name ': '大学英语2'}, 8: {'course_type': '公共必修', 'course_teacher': '', 'course_school': '公共数学教学', 'course_credit': '5.0', 'course_id': '20171056078', 'course_name ': '高等数学B1'}, 9: {'course_type': '公共必修', 'course_teacher': '', 'course_school': '公共政治教学', 'course_credit': '3.0', 'course_id': '20171058029', 'course_name ': '思想道德修养与法律基础'}, 10: {'course_type': '公共必修', 'course_teacher': '', 'course_school': '公共政治教学', 'course_credit': '2.0', 'course_id': '20171058261', 'course_name ': '中国近现代史纲要'}, 11: {'course_type': '公共选修', 'course_teacher': '', 'course_school': '新闻与传播学院', 'course_credit': '1.0', 'course_id': '20172003095', 'course_name ': '创新思维与方法'}, 12: {'course_type': '公共选修', 'course_teacher': '', 'course_school': '经济与管理学院', 'course_credit': '2.0', 'course_id': '20172005354', 'course_name ': '创业金融'}, 13: {'course_type': '专业必修', 'course_teacher': '', 'course_school': '国际软件学院', 'course_credit': '2.0', 'course_id': '20172030007', 'course_name ': '英语听说2'}, 14: {'course_type': '专业选修', 'course_teacher': '', 'course_school': '国际软件学院', 'course_credit': '2.0', 'course_id': '20172030117', 'course_name ': 'C++程序设计'}, 15: {'course_type': '专业必修', 'course_teacher': '', 'course_school': '国际软件学院', 'course_credit': '3.0', 'course_id': '20172030123', 'course_name ': '离散数学'}, 16: {'course_type': '专业选修', 'course_teacher': '', 'course_school': '国际软件学院', 'course_credit': '0.5', 'course_id': '20172030127', 'course_name ': 'C++程序设计实验'}, 17: {'course_type': '公共必修', 'course_teacher': '', 'course_school': '体育部', 'course_credit': '1.0', 'course_id': '20172040392', 'course_name ': '篮球（高级）'}, 18: {'course_type': '公共必修', 'course_teacher': '', 'course_school': '大学英语部', 'course_credit': '3.0', 'course_id': '20172055158', 'course_name ': '大学英语3'}, 19: {'course_type': '公共必修', 'course_teacher': '', 'course_school': '公共数学教学', 'course_credit': '5.0', 'course_id': '20172056019', 'course_name ': '高等数学B2'}, 20: {'course_type': '公共必修', 'course_teacher': '', 'course_school': '公共数学教学', 'course_credit': '3.0', 'course_id': '20172056093', 'course_name ': '线性代数B'}, 21: {'course_type': '公共必修', 'course_teacher': '', 'course_school': '公共物理教学', 'course_credit': '3.0', 'course_id': '20172057034', 'course_name ': '大学物理B（上）'}, 22: {'course_type': '公共必修', 'course_teacher': '', 'course_school': '公共政治教学', 'course_credit': '3.0', 'course_id': '20172058026', 'course_name ': '马克思主义基本原理概论'}, 23: {'course_type': '公共选修', 'course_teacher': '', 'course_school': '经济与管理学院', 'course_credit': '1.0', 'course_id': '20181005321', 'course_name ': '创业营销'}, 24: {'course_type': '公共选修', 'course_teacher': '', 'course_school': '经济与管理学院', 'course_credit': '2.0', 'course_id': '20181005322', 'course_name ': '创业领导力'}, 25: {'course_type': '专业必修', 'course_teacher': '', 'course_school': '计算机学院', 'course_credit': '3.0', 'course_id': '20181021057', 'course_name ': '数据结构与算法'}, 26: {'course_type': '专业选修', 'course_teacher': '', 'course_school': '计算机学院', 'course_credit': '2.0', 'course_id': '20181021064', 'course_name ': '数字逻辑'}, 27: {'course_type': '专业必修', 'course_teacher': '', 'course_school': '计算机学院', 'course_credit': '3.0', 'course_id': '20181021067', 'course_name ': '计算机组织与体系结构'}, 28: {'course_type': '专业选修', 'course_teacher': '', 'course_school': '计算机学院', 'course_credit': '2.0', 'course_id': '20181021070', 'course_name ': 'C#程序设计'}, 29: {'course_type': '专业必修', 'course_teacher': '', 'course_school': '计算机学院', 'course_credit': '2.0', 'course_id': '20181021073', 'course_name ': '面向对象程序设计（JAVA）'}, 30: {'course_type': '专业必修', 'course_teacher': '', 'course_school': '计算机学院', 'course_credit': '1.0', 'course_id': '20181021078', 'course_name ': '初级项目实践（暑期）'}, 31: {'course_type': '专业必修', 'course_teacher': '', 'course_school': '计算机学院', 'course_credit': '0.5', 'course_id': '20181021081', 'course_name ': '面向对象程序设计实验'}, 32: {'course_type': '专业必修', 'course_teacher': '', 'course_school': '计算机学院', 'course_credit': '0.5', 'course_id': '20181021084', 'course_name ': '数据结构与算法实验'}, 33: {'course_type': '公共选修', 'course_teacher': '', 'course_school': '遥感信息工程学院', 'course_credit': '2.0', 'course_id': '20181023090', 'course_name ': '3D技术与应用'}, 34: {'course_type': '公共必修', 'course_teacher': '', 'course_school': '体育部', 'course_credit': '1.0', 'course_id': '20181040315', 'course_name ': '乒乓球（初级）'}, 35: {'course_type': '公共必修', 'course_teacher': '', 'course_school': '大学英语部', 'course_credit': '3.0', 'course_id': '20181055144', 'course_name ': '大学英语4'}, 36: {'course_type': '公共必修', 'course_teacher': '', 'course_school': '公共数学教学', 'course_credit': '3.0', 'course_id': '20181056027', 'course_name ': '概率论与数理统计B'}, 37: {'course_type': '公共必修', 'course_teacher': '', 'course_school': '公共物理教学', 'course_credit': '3.0', 'course_id': '20181057035', 'course_name ': '大学物理B（下）'}, 38: {'course_type': '公共必修', 'course_teacher': '', 'course_school': '公共政治教学', 'course_credit': '4.0', 'course_id': '20181058047', 'course_name ': '毛泽东思想和中国特色社会主义理论体系概论'}, 39: {'course_type': '公共必修', 'course_teacher': '', 'course_school': '形势与政策教育中心', 'course_credit': '0.5', 'course_id': '20171101066', 'course_name ': '形势与政策1'}, 40: {'course_type': '公共选修', 'course_teacher': '', 'course_school': '新闻与传播学院', 'course_credit': '2.0', 'course_id': '20182003112', 'course_name ': '动漫微视频广告创意与制作'}, 41: {'course_type': '公共必修', 'course_teacher': '', 'course_school': '大学英语部', 'course_credit': '2.0', 'course_id': '20182055547', 'course_name ': '英语电影与西方文化'}, 42: {'course_type': '专业必修', 'course_teacher': '', 'course_school': '计算机学院', 'course_credit': '0.5', 'course_id': '20182021048', 'course_name ': '人机交互实验'}, 43: {'course_type': '专业必修', 'course_teacher': '', 'course_school': '计算机学院', 'course_credit': '0.5', 'course_id': '20182021044', 'course_name ': '操作系统原理实验'}, 44: {'course_type': '专业必修', 'course_teacher': '', 'course_school': '计算机学院', 'course_credit': '2.0', 'course_id': '20182021036', 'course_name ': '数据库课程设计'}, 45: {'course_type': '专业必修', 'course_teacher': '', 'course_school': '计算机学院', 'course_credit': '1.0', 'course_id': '20182021026', 'course_name ': '人机交互'}, 46: {'course_type': '专业必修', 'course_teacher': '', 'course_school': '计算机学院', 'course_credit': '2.5', 'course_id': '20182021017', 'course_name ': '操作系统原理'}, 47: {'course_type': '专业必修', 'course_teacher': '', 'course_school': '计算机学院', 'course_credit': '3.0', 'course_id': '20182021012', 'course_name ': '数据库系统'}, 48: {'course_type': '专业必修', 'course_teacher': '', 'course_school': '计算机学院', 'course_credit': '3.0', 'course_id': '20182021008', 'course_name ': '编译技术及应用'}, 49: {'course_type': '专业选修', 'course_teacher': '', 'course_school': '计算机学院', 'course_credit': '3.0', 'course_id': '20182021031', 'course_name ': 'Objective-C'}, 50: {'course_type': '专业选修', 'course_teacher': '', 'course_school': '计算机学院', 'course_credit': '1.0', 'course_id': '20182021022', 'course_name ': 'UML及软件建模'}, 51: {'course_type': '专业选修', 'course_teacher': '', 'course_school': '计算机学院', 'course_credit': '2.0', 'course_id': '20182021004', 'course_name ': 'UNIX程序设计'}, 52: {'course_type': '专业选修', 'course_teacher': '', 'course_school': '计算机学院', 'course_credit': '0.5', 'course_id': '20182021040', 'course_name ': 'UML及软件建模实验'}, 53: {'course_type': '公共必修', 'course_teacher': '', 'course_school': '体育部', 'course_credit': '1.0', 'course_id': '20182040053', 'course_name ': '乒乓球（高级）'}, 54: {'course_type': '公共选修', 'course_teacher': '', 'course_school': '大学生心理健康中心', 'course_credit': '1.0', 'course_id': '20182083004', 'course_name ': '大学生心理健康'}, 55: {'course_type': '公共选修', 'course_teacher': '', 'course_school': '国家网络安全学院', 'course_credit': '1.0', 'course_id': '20182045073', 'course_name ': '大学生创业'}}
+[pid: 1596|app: 0|req: 21/81] 218.197.153.242 () {52 vars in 1116 bytes} [Tue Feb 26 08:17:11 2019] POST /account/activate/ => generated 27 bytes in 936 msecs (HTTP/1.1 500) 4 headers in 126 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 26/82] 218.197.153.242 () {44 vars in 832 bytes} [Tue Feb 26 08:17:20 2019] GET /account/yzm/ => generated 5322 bytes in 58 msecs (HTTP/1.1 200) 5 headers in 159 bytes (1 switches on core 0)
+[pid: 1596|app: 0|req: 22/83] 218.197.153.242 () {44 vars in 940 bytes} [Tue Feb 26 08:17:34 2019] GET /account/media/yzm/8F5F419007E93C4B194CBE08034AD276.jpg => generated 128 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 101 bytes (1 switches on core 0)
+[pid: 1597|app: 0|req: 16/84] 218.197.153.242 () {42 vars in 906 bytes} [Tue Feb 26 08:17:37 2019] GET /account/media/yzm//media/yzm/959C347A898AAD523C827FEF60551A72.jpg => generated 138 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 101 bytes (1 switches on core 0)
+[pid: 1593|app: 0|req: 21/85] 218.197.153.242 () {42 vars in 885 bytes} [Tue Feb 26 08:17:42 2019] GET /account/media/yzm/959C347A898AAD523C827FEF60551A72.jpg => generated 2371 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 4 headers in 142 bytes (0 switches on core 0)
+[pid: 1593|app: 0|req: 22/86] 218.197.153.242 () {52 vars in 1116 bytes} [Tue Feb 26 08:17:53 2019] POST /account/activate/ => generated 8068 bytes in 13 msecs (HTTP/1.1 400) 6 headers in 317 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 27/87] 218.197.153.242 () {52 vars in 1107 bytes} [Tue Feb 26 08:21:39 2019] POST /account/login/ => generated 7224 bytes in 94 msecs (HTTP/1.1 200) 6 headers in 308 bytes (1 switches on core 0)
+[pid: 1596|app: 0|req: 23/88] 218.197.153.242 () {52 vars in 1107 bytes} [Tue Feb 26 08:21:47 2019] POST /account/login/ => generated 7224 bytes in 97 msecs (HTTP/1.1 200) 6 headers in 308 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 28/89] 109.70.100.18 () {36 vars in 523 bytes} [Tue Feb 26 08:49:35 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1597|app: 0|req: 17/90] 120.132.3.65 () {34 vars in 508 bytes} [Tue Feb 26 09:21:37 2019] GET /404/search_children.js => generated 96 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1593|app: 0|req: 23/91] 198.199.100.240 () {40 vars in 626 bytes} [Tue Feb 26 09:52:53 2019] GET /Jwlsjd_baaqifg.php => generated 92 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1597|app: 0|req: 18/92] 207.154.255.47 () {34 vars in 391 bytes} [Tue Feb 26 10:09:48 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1593|app: 0|req: 24/93] 139.162.119.197 () {32 vars in 398 bytes} [Tue Feb 26 10:17:23 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 29/94] 122.3.139.106 () {32 vars in 461 bytes} [Tue Feb 26 12:36:35 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1597|app: 0|req: 19/95] 80.82.70.187 () {32 vars in 429 bytes} [Tue Feb 26 12:55:31 2019] GET /cache/global/img/gs.gif => generated 97 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1596|app: 0|req: 24/96] 218.197.153.52 () {36 vars in 602 bytes} [Tue Feb 26 13:25:14 2019] GET /favicon.ico => generated 85 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1593|app: 0|req: 25/97] 218.197.153.52 () {36 vars in 602 bytes} [Tue Feb 26 13:26:58 2019] GET /favicon.ico => generated 85 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 30/98] 2.181.66.228 () {32 vars in 466 bytes} [Tue Feb 26 13:35:51 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 31/99] 62.24.109.13 () {32 vars in 460 bytes} [Tue Feb 26 14:50:27 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1596|app: 0|req: 25/100] 34.76.106.164 () {34 vars in 434 bytes} [Tue Feb 26 15:36:11 2019] GET /handle_load_config.php => generated 96 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1597|app: 0|req: 20/101] 109.70.100.25 () {36 vars in 517 bytes} [Tue Feb 26 17:40:36 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1593|app: 0|req: 26/102] 213.112.77.130 () {28 vars in 320 bytes} [Tue Feb 26 17:54:52 2019] GET /systemInfo => generated 84 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 32/103] 78.165.241.17 () {32 vars in 460 bytes} [Tue Feb 26 18:13:17 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1596|app: 0|req: 26/104] 120.55.168.103 () {32 vars in 365 bytes} [Tue Feb 26 18:23:02 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1593|app: 0|req: 27/105] 109.70.100.22 () {36 vars in 523 bytes} [Tue Feb 26 18:57:02 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1597|app: 0|req: 21/106] 58.177.22.155 () {26 vars in 278 bytes} [Tue Feb 26 19:00:15 2019] HEAD / => generated 74 bytes in 1 msecs (HTTP/1.0 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 33/107] 109.120.211.6 () {38 vars in 526 bytes} [Tue Feb 26 19:12:49 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.0 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1596|app: 0|req: 27/108] 69.162.124.102 () {38 vars in 475 bytes} [Tue Feb 26 19:29:55 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1593|app: 0|req: 28/109] 112.134.139.103 () {26 vars in 279 bytes} [Tue Feb 26 19:43:36 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.0 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1597|app: 0|req: 22/110] 109.70.100.22 () {36 vars in 524 bytes} [Tue Feb 26 19:46:24 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1593|app: 0|req: 29/111] 85.103.57.255 () {32 vars in 461 bytes} [Tue Feb 26 20:22:13 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1597|app: 0|req: 23/112] 45.5.212.203 () {32 vars in 465 bytes} [Tue Feb 26 20:33:06 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 34/113] 190.130.15.81 () {32 vars in 460 bytes} [Tue Feb 26 20:43:28 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1596|app: 0|req: 28/114] 109.70.100.24 () {36 vars in 517 bytes} [Tue Feb 26 21:10:34 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1597|app: 0|req: 24/115] 105.184.87.155 () {32 vars in 462 bytes} [Tue Feb 26 21:44:11 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1593|app: 0|req: 30/116] 80.82.70.187 () {32 vars in 429 bytes} [Tue Feb 26 22:59:33 2019] GET /cache/global/img/gs.gif => generated 97 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 35/117] 45.6.24.1 () {32 vars in 456 bytes} [Tue Feb 26 23:09:33 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1596|app: 0|req: 29/118] 106.14.115.254 () {34 vars in 493 bytes} [Tue Feb 26 23:39:16 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1597|app: 0|req: 25/119] 116.62.215.53 () {34 vars in 496 bytes} [Wed Feb 27 00:01:01 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 36/120] 78.165.126.181 () {32 vars in 468 bytes} [Wed Feb 27 01:26:35 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1596|app: 0|req: 30/121] 54.187.59.149 () {32 vars in 366 bytes} [Wed Feb 27 03:12:28 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1593|app: 0|req: 31/122] 198.108.66.176 () {34 vars in 391 bytes} [Wed Feb 27 03:31:52 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1595|app: 0|req: 37/123] 212.83.157.98 () {30 vars in 372 bytes} [Wed Feb 27 04:17:54 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.0 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 1597|app: 0|req: 26/124] 160.119.208.254 () {32 vars in 463 bytes} [Wed Feb 27 04:29:43 2019] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
