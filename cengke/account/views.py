@@ -63,7 +63,7 @@ class LoginView(APIView):
                     return Response(reply)
                 else:
                     user1 = Nuser.objects.filter(username=username)
-                    if user1 is not None:
+                    if user1:
                         reply = {
                             "is_pwd_correct":False
                         }
